@@ -1,5 +1,7 @@
 // // products connected to the html 
 const trendingProducts = document.querySelector('#trendingProducts')
+const thePro = document.querySelector('#pro')
+const thePro2 = document.querySelector('#pro2')
 
 fetch('https://dummyjson.com/products', {
 // fetch('https://fakestoreapi.com/products', {
@@ -44,36 +46,90 @@ fetch('https://dummyjson.com/products', {
     }).join('');
 })
 .catch(function(error){
-    console.log("Something went wrong");
-    // alert('Something went wrong');
-    console.log(error);
+  console.log("Something went wrong");
+  // alert('Something went wrong');
+  console.log(error);
 })
 
 
+fetch('https://dummyjson.com/products', {
+  method: "GET"
+})
 
-// fetch('https://dummyjson.com/products', {
-//     method: "GET"
-// })
-// .then(function(response){
-//     // console.log(response);
-//     return response.json();
-// })
-// .then(function(data){
-//     console.log(data);
+.then(function(responsetwo) {
+  console.log(responsetwo)
+  return responsetwo.json()
+})
 
-//     let products = data.products;
-//     console.log(products);
+.then(function(thepro){
+  // to get the best of the best product
+  const nextfour = thepro.products;
+  console.log(nextfour);
 
-//     trendingProducts.innerHTML = products.map(function(value, index, array){
-//         // console.log(value);
-//         return `
-//         <div class="eachProduct">
-//             <img src="${value.thumbnail}" alt="${value.title}">
-//             <h5>${value.title}</h5>
-//             <p>${value.price}</p>
-//             <button>Add to Cart</button>
-//         </div>
-//         `;
-//     })
+  let finalpro = nextfour.slice(5, 9);
+  console.log(finalpro);
 
-// })
+
+      thePro.innerHTML = finalpro.map(function(value, index, array){
+        // console.log(value);
+        // the best of the best product layer out connected
+        return `
+            <div class="group relative">
+        <img src="${value.images}" alt="${value.title}" class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80" />
+        <div class="mt-4 flex justify-between">
+          <div>
+            <h3 class="text-sm text-gray-700">
+              <a href="#">
+                <span aria-hidden="true" class="absolute inset-0"></span>
+                ${value.title}
+              </a>
+            </h3>
+            <p class="mt-1 text-sm text-gray-500">${value.tags}</p>
+          </div>
+          <p class="text-sm font-medium text-gray-900">$${value.price}</p>
+        </div>
+      </div>
+        `;
+    }).join('');
+})
+
+fetch('https://dummyjson.com/products', {
+  method: "GET"
+})
+
+.then(function(responsethird) {
+  console.log(responsethird)
+  return responsethird.json()
+})
+
+.then(function(thepro2){
+  // to get the best of the best product
+  const nextfour2 = thepro2.products;
+  console.log(nextfour2);
+
+  let finalpro2 = nextfour2.slice(10, 14);
+  console.log(finalpro2);
+
+
+      thePro2.innerHTML = finalpro2.map(function(value, index, array){
+        // console.log(value);
+        // the best of the best product layer out connected
+        return `
+            <div class="group relative">
+        <img src="${value.images}" alt="${value.title}" class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80" />
+        <div class="mt-4 flex justify-between">
+          <div>
+            <h3 class="text-sm text-gray-700">
+              <a href="#">
+                <span aria-hidden="true" class="absolute inset-0"></span>
+                ${value.title}
+              </a>
+            </h3>
+            <p class="mt-1 text-sm text-gray-500">${value.tags}</p>
+          </div>
+          <p class="text-sm font-medium text-gray-900">$${value.price}</p>
+        </div>
+      </div>
+        `;
+    }).join('');
+})
