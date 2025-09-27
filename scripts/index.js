@@ -1,5 +1,4 @@
-// const { response } = require("express");
-
+// products connected to the html 
 const trendingProducts = document.querySelector('#trendingProducts')
 
 fetch('https://api.escuelajs.co/api/v1/products', {
@@ -12,18 +11,20 @@ fetch('https://api.escuelajs.co/api/v1/products', {
 })
 
 .then(function(tProducts){
+  // to get the best of the best product
   const firstFour = tProducts.slice(0, 4);
-  console.log(firstFour)
+  console.log(firstFour);
 
-  let theTrendingProducts = firstFour
-  console.log(theTrendingProducts)
+  let theTrendingProducts = firstFour;
+  console.log(theTrendingProducts);
 
 
      trendingProducts.innerHTML = theTrendingProducts.map(function(value, index, array){
         // console.log(value);
+        // the best of the best product layer out connected
         return `
             <div class="group relative">
-        <img src="${value.images}" alt="Front of men&#039;s Basic Tee in black." class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80" />
+        <img src="${value.images}" alt="${value.title}" class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80" />
         <div class="mt-4 flex justify-between">
           <div>
             <h3 class="text-sm text-gray-700">
@@ -39,6 +40,9 @@ fetch('https://api.escuelajs.co/api/v1/products', {
       </div>
         `;
     }).join('');
-
-
+})
+.catch(function(error){
+    console.log("Something went wrong");
+    // alert('Something went wrong');
+    console.log(error);
 })

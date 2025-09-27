@@ -9,7 +9,7 @@
     <title>My E-Commerce Website</title>
   </head>
   <body>
->
+    <!-- nav bar with an hamburger button -->
   <header class="absolute inset-x-0 top-0 z-50">
     <nav aria-label="Global" class="flex items-center justify-between p-6 lg:px-8">
       <div class="flex lg:flex-1 text-lg">
@@ -33,6 +33,7 @@
         <a href="./pages/contact.html" class="text-base font-semibold text-black">Contact</a>
       </div>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+        <a href="#" class="rounded-md bg-black mr-4 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-grey-400 focus-visible:outline-2 focus-visible:outline-offset-2">Sign Up</a>
         <a href="#" class="text-2xl font-semibold text-black"><i class="fa-solid fa-cart-shopping"></i></a>
         <!-- <a href="#" class="text-sm/6 font-semibold text-white">Log in <span aria-hidden="true">&rarr;</span></a> -->
       </div>
@@ -63,7 +64,8 @@
                 </div>
                 <div class="py-6">
                   <a href="#" class="text-lg font-semibold text-black"><i class="fa-solid fa-cart-shopping"></i></a>
-
+                  
+                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-black hover:bg-white/5">Sign Up</a>
                   <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-black hover:bg-white/5">Log in</a>
                 </div>
               </div>
@@ -73,31 +75,35 @@
       </dialog>
     </el-dialog>
   </header>
-
+  
+  <!-- Hero section -->
   <section class="relative isolate px-8 pt-16 lg:px-10">
-    <div class="mx-auto max-w-2xl py-1 sm:py-7 lg:py-10">
+    <div class="mx-auto max-w-2xl py-7 sm:py-17 lg:py-17">
       <div class="text-center">
         <h1 class="text-5xl font-semibold tracking-tight text-balance text-black sm:text-7xl">The Convenient Place</h1>
-        <p class="mt-8 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8">Note: This template can be used for any e-commerce store. The main color, and the font can easily be changed depending on the branding for your new website!</p>
+        <p class="mt-8 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8">Welcome to a place where class meets convenience, all at affordable prices.</p>
         <div class="mt-10 flex items-center justify-center gap-x-6">
-          <a href="#" class="rounded-md bg-black px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-grey-400 focus-visible:outline-2 focus-visible:outline-offset-2">Shop</a>
+          <a href="#" class=" bg-black p-3 text-white shadow-xs hover:bg-grey-400 focus-visible:outline-2 focus-visible:outline-offset-2">Shop</a>
           <a href="#" class="text-sm/6 font-semibold text-black">Buy Template<span aria-hidden="true">→</span></a>
         </div>
       </div>
 
     </div>
-    <div>
+    <div class="">
       <img src="images/img-hero-sec.jpeg" alt="" class="h-80 w-full object-cover">
     </div>
 
 </section>
 
+  <!-- section about the best of the best products the products are gotten for the api and extracted from it -->
   <section>
 
     <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
       
-      <h4 class=" font-bold tracking-tight text-blue-500">Trending</h4>
-      <h1 class="text-5xl font-bold tracking-tight text-black">The best of the best</h1>
+      <h4 class="text-lg tracking-tight text-blue-300">Trending</h4>
+      <h1 class="mt-5 text-5xl font-bold tracking-tight text-black">The best of the best</h1>
+      <p class="mt-5 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8">The coolest, hottest products avaliable.</p>
+
 
       <div class="mt-8 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8" id="trendingProducts">
 
@@ -105,6 +111,11 @@
     </div>
     
   </section>
+
+    <!-- a signup to newsletter section -->
+     <section class="h-[100px] bg-blue-300 mx-auto max-w-2xl mx-4 my-16 sm:mx-6 sm:my-24 lg:max-w-7xl lg:mx-8">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint eos animi deserunt quas iusto aliquam enim quidem molestiae, deleniti commodi cum soluta. Modi fugit debitis repellendus nobis quam cumque maxime!</p>
+     </section>
 
 <script src="scripts/index.js"></script>
 </body>
