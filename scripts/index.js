@@ -1,7 +1,8 @@
 // products connected to the html 
 const trendingProducts = document.querySelector('#trendingProducts')
 
-fetch('https://api.escuelajs.co/api/v1/products', {
+fetch('https://fakestoreapi.com/products', {
+// fetch('https://api.escuelajs.co/api/v1/products', {
     method: "GET"
 })
 
