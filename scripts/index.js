@@ -1,7 +1,8 @@
-// products connected to the html 
+// // products connected to the html 
 const trendingProducts = document.querySelector('#trendingProducts')
 
-fetch('https://fakestoreapi.com/products', {
+fetch('https://dummyjson.com/products', {
+// fetch('https://fakestoreapi.com/products', {
 // fetch('https://api.escuelajs.co/api/v1/products', {
     method: "GET"
 })
@@ -13,10 +14,10 @@ fetch('https://fakestoreapi.com/products', {
 
 .then(function(tProducts){
   // to get the best of the best product
-  const firstFour = tProducts.slice(0, 4);
+  const firstFour = tProducts.products;
   console.log(firstFour);
 
-  let theTrendingProducts = firstFour;
+  let theTrendingProducts = firstFour.slice(0, 4);
   console.log(theTrendingProducts);
 
 
@@ -34,7 +35,7 @@ fetch('https://fakestoreapi.com/products', {
                 ${value.title}
               </a>
             </h3>
-            <p class="mt-1 text-sm text-gray-500">${value.updatedAt}</p>
+            <p class="mt-1 text-sm text-gray-500">${value.tags}</p>
           </div>
           <p class="text-sm font-medium text-gray-900">$${value.price}</p>
         </div>
@@ -47,3 +48,32 @@ fetch('https://fakestoreapi.com/products', {
     // alert('Something went wrong');
     console.log(error);
 })
+
+
+
+// fetch('https://dummyjson.com/products', {
+//     method: "GET"
+// })
+// .then(function(response){
+//     // console.log(response);
+//     return response.json();
+// })
+// .then(function(data){
+//     console.log(data);
+
+//     let products = data.products;
+//     console.log(products);
+
+//     trendingProducts.innerHTML = products.map(function(value, index, array){
+//         // console.log(value);
+//         return `
+//         <div class="eachProduct">
+//             <img src="${value.thumbnail}" alt="${value.title}">
+//             <h5>${value.title}</h5>
+//             <p>${value.price}</p>
+//             <button>Add to Cart</button>
+//         </div>
+//         `;
+//     })
+
+// })

@@ -111,11 +111,81 @@
     </div>
     
   </section>
+  
+  <!-- a signup to newsletter section -->
+     <section class="bg-blue-300 text-black py-20 px-4 sm:px-6 lg:px-8 mx-auto max-w-2xl mx-4 sm:mx-6 lg:max-w-7xl lg:mx-8">
+  <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
 
-    <!-- a signup to newsletter section -->
-     <section class="h-[100px] bg-blue-300 mx-auto max-w-2xl mx-4 my-16 sm:mx-6 sm:my-24 lg:max-w-7xl lg:mx-8">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint eos animi deserunt quas iusto aliquam enim quidem molestiae, deleniti commodi cum soluta. Modi fugit debitis repellendus nobis quam cumque maxime!</p>
-     </section>
+    <!-- Left Text Section -->
+    <div class="lg:w-1/2 space-y-4">
+      <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight tracking-tight">
+        Sign Up To Our NewsLetter.
+        <br> Receive Exclusive Offers.
+        
+      </h2>
+    </div>
+
+    <!-- Right Form Section -->
+    <div class="lg:w-1/2 w-full">
+      <form class="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+        
+        <!-- Email Input with Label (Hidden for sighted users, visible to screen readers) -->
+        <div class="relative w-full sm:w-64 lg:w-80">
+          <label for="newsletter-email" class="sr-only">Email address</label>
+          <input
+            id="newsletter-email"
+            type="email"
+            placeholder="Enter your email"
+            required
+            class="w-full bg-white text-black placeholder-gray-500 border border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 ease-in-out"
+          />
+        </div>
+
+        <button
+          type="submit"
+          class="w-full sm:w-auto bg-black hover:bg-grey-300 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 ease-in-out shadow-md hover:shadow-lg whitespace-nowrap flex-shrink-0"
+        >
+          Sign Up
+        </button>
+
+      </form>
+
+      <!-- Privacy Policy -->
+      <p class="mt-4 text-xs sm:text-sm text-grey-300">
+        By clicking Sign Up you're confirming that you agree with our
+        <br>
+        <a href="#" class="hover:text-gray-200 underline font-medium transition-colors">
+          Terms and Conditions.
+        </a>
+      </p>
+    </div>
+
+  </div>
+</section>
+<div class="">
+  <div class="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
+    <div class="relative isolate overflow-hidden text-black px-6 pt-16 after:pointer-events-none after:absolute after:inset-0 after:inset-ring after:inset-ring-white/10 sm:rounded-3xl sm:px-16 after:sm:rounded-3xl md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
+      <div class="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
+        <h1 class="text-3xl font-semibold tracking-tight text-balance sm:text-4xl">Why choose us?</h1>
+        <p class="mt-6 text-lg/8 text-pretty text-gray-300">Ac euismod vel sit maecenas id pellentesque eu sed consectetur. Malesuada adipiscing sagittis vel nulla.</p>
+        <div class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
+          <a href="#" class="rounded-md bg-gray-700 px-3.5 py-2.5 text-sm font-semibold text-white inset-ring inset-ring-white/5 hover:bg-gray-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"> Get started </a>
+          <a href="#" class="text-sm/6 font-semibold text-white hover:text-gray-100">
+            Learn more
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+      <div class="relative mt-16 h-80 lg:mt-8">
+        <img width="1824" height="1080" src="./images/whyChoseUsSec.jpg" alt="App screenshot" class="absolute top-0 left-0 w-228 max-w-none rounded-md bg-white/5 ring-1 ring-white/10" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<section>
+
+</section>
 
 <script src="scripts/index.js"></script>
 </body>
