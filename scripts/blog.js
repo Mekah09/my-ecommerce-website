@@ -51,42 +51,42 @@ const trendingProducts = document.querySelector('#trendingProducts')
 fetch('https://dummyjson.com/carts', {
     method: "GET"
 })
-.then(function(response){
-    console.log(response);
-    return response.json();
-})
-.then(function(tProducts){
-    // Let's explore the structure first
-    console.log("Full response:", tProducts);
-    console.log("Keys in response:", Object.keys(tProducts));
-    
-    // Now let's look at the carts array
-    if (tProducts.carts) {
-        console.log("Number of carts:", tProducts.carts.length);
-        console.log("First cart:", tProducts.carts[0]);
-        console.log("Products in first cart:", tProducts.carts[0].products);
-    }
-    
-    // Extract products from all carts
-    const allCartProducts = [];
-    
-    tProducts.carts.forEach(function(cart) {
-        cart.products.forEach(function(product) {
-            allCartProducts.push(product);
+    .then(function (response) {
+        console.log(response);
+        return response.json();
+    })
+    .then(function (tProducts) {
+        // Let's explore the structure first
+        console.log("Full response:", tProducts);
+        console.log("Keys in response:", Object.keys(tProducts));
+
+        // Now let's look at the carts array
+        if (tProducts.carts) {
+            console.log("Number of carts:", tProducts.carts.length);
+            console.log("First cart:", tProducts.carts[0]);
+            console.log("Products in first cart:", tProducts.carts[0].products);
+        }
+
+        // Extract products from all carts
+        const allCartProducts = [];
+
+        tProducts.carts.forEach(function (cart) {
+            cart.products.forEach(function (product) {
+                allCartProducts.push(product);
+            });
         });
-    });
-    
-    console.log("All products from all carts:", allCartProducts);
-    console.log("Total products found:", allCartProducts.length);
-    
-    // Get first 4 products for trending
-    let theTrendingProducts = allCartProducts.slice(22, 26);
-    console.log("First 4 trending products:", theTrendingProducts);
-    
-    trendingProducts.innerHTML = theTrendingProducts.map(function(value, index, array){
-        console.log("Current product:", value);
-        
-        return `
+
+        console.log("All products from all carts:", allCartProducts);
+        console.log("Total products found:", allCartProducts.length);
+
+        // Get first 4 products for trending
+        let theTrendingProducts = allCartProducts.slice(22, 26);
+        console.log("First 4 trending products:", theTrendingProducts);
+
+        trendingProducts.innerHTML = theTrendingProducts.map(function (value, index, array) {
+            console.log("Current product:", value);
+
+            return `
             <div class="group relative">
                 <img src="${value.thumbnail}" alt="${value.title}" class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80" />
                 <div class="mt-4 flex justify-between">
@@ -103,9 +103,9 @@ fetch('https://dummyjson.com/carts', {
                 </div>
             </div>
         `;
-    }).join('');
-})
-.catch(function(error){
-    console.log("Something went wrong");
-    console.log(error);
-})
+        }).join('');
+    })
+    .catch(function (error) {
+        console.log("Something went wrong");
+        console.log(error);
+    })

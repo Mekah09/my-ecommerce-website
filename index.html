@@ -1,15 +1,19 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>My E-Commerce Website</title>
-  </head>
-  <body>
-    <!-- nav bar with an hamburger button -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>My E-Commerce Website</title>
+</head>
+
+<body>
+  <!-- nav bar with an hamburger button -->
   <header class="absolute inset-x-0 top-0 z-50">
     <nav aria-label="Global" class="flex items-center justify-between p-6 lg:px-8">
       <div class="flex lg:flex-1 text-lg">
@@ -19,9 +23,11 @@
         </a>
       </div>
       <div class="flex lg:hidden">
-        <button type="button" command="show-modal" commandfor="mobile-menu" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5">
+        <button type="button" command="show-modal" commandfor="mobile-menu"
+          class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5">
           <span class="sr-only">Open main menu</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon"
+            aria-hidden="true" class="size-6">
             <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
         </button>
@@ -33,7 +39,9 @@
         <a href="./pages/contact.html" class="text-base font-semibold text-gray-800">Contact</a>
       </div>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-        <a href="#" class="rounded-md bg-gray-800 mr-4 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-grey-400 focus-visible:outline-2 focus-visible:outline-offset-2">Sign Up</a>
+        <a href="#"
+          class="rounded-md bg-gray-800 mr-4 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-grey-400 focus-visible:outline-2 focus-visible:outline-offset-2">Sign
+          Up</a>
         <a href="#" class="text-2xl font-semibold text-gray-800"><i class="fa-solid fa-cart-shopping"></i></a>
         <!-- <a href="#" class="text-sm/6 font-semibold text-white">Log in <span aria-hidden="true">&rarr;</span></a> -->
       </div>
@@ -41,15 +49,18 @@
     <el-dialog>
       <dialog id="mobile-menu" class="backdrop:bg-transparent lg:hidden">
         <div tabindex="0" class="fixed inset-0 focus:outline-none">
-          <el-dialog-panel class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-100/10 shadow-md">
+          <el-dialog-panel
+            class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-100/10 shadow-md">
             <div class="flex items-center justify-between">
               <a href="#" class="-m-1.5 p-1.5">
                 <span class="sr-only">Your Company</span>
                 <img src="images/LOGO.webp" alt="" class="h-8 w-auto" />
               </a>
-              <button type="button" command="close" commandfor="mobile-menu" class="-m-2.5 rounded-md p-2.5 text-gray-200">
+              <button type="button" command="close" commandfor="mobile-menu"
+                class="-m-2.5 rounded-md p-2.5 text-gray-200">
                 <span class="sr-only">Close menu</span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon"
+                  aria-hidden="true" class="size-6">
                   <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
               </button>
@@ -57,16 +68,25 @@
             <div class="mt-6 flow-root">
               <div class="-my-6 divide-y divide-white/10">
                 <div class="space-y-2 py-6">
-                  <a href="./pages/products.html" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-800 hover:bg-white/5">Products</a>
-                  <a href="./pages/shopAll.html" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-800 hover:bg-white/5">Shop All</a>
-                  <a href="./pages/blog.html" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-800 hover:bg-white/5">Blog</a>
-                  <a href="./pages/contact.html" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-800 hover:bg-white/5">Contact</a>
+                  <a href="./pages/products.html"
+                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-800 hover:bg-white/5">Products</a>
+                  <a href="./pages/shopAll.html"
+                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-800 hover:bg-white/5">Shop
+                    All</a>
+                  <a href="./pages/blog.html"
+                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-800 hover:bg-white/5">Blog</a>
+                  <a href="./pages/contact.html"
+                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-800 hover:bg-white/5">Contact</a>
                 </div>
                 <div class="py-6">
                   <a href="#" class="text-lg font-semibold text-gray-800"><i class="fa-solid fa-cart-shopping"></i></a>
-                  
-                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-800 hover:bg-white/5">Sign Up</a>
-                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-800 hover:bg-white/5">Log in</a>
+
+                  <a href="#"
+                    class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-800 hover:bg-white/5">Sign
+                    Up</a>
+                  <a href="#"
+                    class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-800 hover:bg-white/5">Log
+                    in</a>
                 </div>
               </div>
             </div>
@@ -75,15 +95,17 @@
       </dialog>
     </el-dialog>
   </header>
-  
+
   <!-- Hero section -->
   <section class="relative isolate px-8 pt-16 lg:px-10">
     <div class="mx-auto max-w-2xl py-7 sm:py-17 lg:py-17">
       <div class="text-center">
         <h1 class="text-5xl font-semibold tracking-tight text-balance text-gray-800 sm:text-7xl">Everyday Elegance</h1>
-        <p class="mt-8 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8">We believe beauty shouldn’t cost a fortune. And comfort shouldn’t be a luxury.</p>
+        <p class="mt-8 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8">We believe beauty shouldn’t cost a
+          fortune. And comfort shouldn’t be a luxury.</p>
         <div class="mt-10 flex items-center justify-center gap-x-6">
-          <a href="#" class=" bg-gray-800 p-3 text-white shadow-xs hover:bg-grey-400 focus-visible:outline-2 focus-visible:outline-offset-2">Shop</a>
+          <a href="#"
+            class=" bg-gray-800 p-3 text-white shadow-xs hover:bg-grey-400 focus-visible:outline-2 focus-visible:outline-offset-2">Shop</a>
           <a href="#" class="text-sm/6 font-semibold text-gray-800">Buy Template<span aria-hidden="true">→</span></a>
         </div>
       </div>
@@ -93,221 +115,216 @@
       <img src="images/img-hero-sec.jpeg" alt="" class="h-80 w-full object-cover">
     </div>
 
-</section>
+  </section>
 
   <!-- section about the best of the best products the products are gotten for the api and extracted from it -->
   <section>
 
     <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-      
+
       <h4 class="text-lg tracking-tight text-slate-300">Trending</h4>
       <h1 class="mt-5 text-5xl font-bold tracking-tight text-gray-800">The best of the best</h1>
-      <p class="mt-5 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8">The coolest, hottest products avaliable.</p>
+      <p class="mt-5 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8">The coolest, hottest products
+        avaliable.</p>
 
 
-      <div class="mt-8 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8" id="trendingProducts">
+      <div class="mt-8 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"
+        id="trendingProducts">
 
       </div>
     </div>
-    
+
   </section>
-  
+
   <!-- a signup to newsletter section -->
-     <section class="bg-slate-300 text-gray-800 py-20 px-4 sm:px-6 lg:px-8 mx-auto max-w-2xl mx-4 sm:mx-6 lg:max-w-7xl lg:mx-8">
-  <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
+  <section
+    class="bg-slate-300 text-gray-800 py-20 px-4 sm:px-6 lg:px-8 mx-auto max-w-2xl mx-4 sm:mx-6 lg:max-w-7xl lg:mx-8">
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
 
-    <!-- Left Text Section -->
-    <div class="lg:w-1/2 space-y-4">
-      <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight tracking-tight">
-        Sign Up To Our NewsLetter.
-        <br> Receive Exclusive Offers.
-        
-      </h2>
-    </div>
+      <!-- Left Text Section -->
+      <div class="lg:w-1/2 space-y-4">
+        <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight tracking-tight">
+          Sign Up To Our NewsLetter.
+          <br> Receive Exclusive Offers.
 
-    <!-- Right Form Section -->
-    <div class="lg:w-1/2 w-full">
-      <form class="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
-        
-        <!-- Email Input with Label (Hidden for sighted users, visible to screen readers) -->
-        <div class="relative w-full sm:w-64 lg:w-80">
-          <label for="newsletter-email" class="sr-only">Email address</label>
-          <input
-            id="newsletter-email"
-            type="email"
-            placeholder="Enter your email"
-            required
-            class="w-full bg-white text-gray-800 placeholder-gray-500 border border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 ease-in-out"
-          />
-        </div>
+        </h2>
+      </div>
 
-        <button
-          type="submit"
-          class="w-full sm:w-auto bg-gray-800 hover:bg-grey-300 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 ease-in-out shadow-md hover:shadow-lg whitespace-nowrap flex-shrink-0"
-        >
-          Sign Up
-        </button>
+      <!-- Right Form Section -->
+      <div class="lg:w-1/2 w-full">
+        <form class="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
 
-      </form>
-
-      <!-- Privacy Policy -->
-      <p class="mt-4 text-xs sm:text-sm text-grey-300">
-        By clicking Sign Up you're confirming that you agree with our
-        <br>
-        <a href="#" class="hover:text-gray-200 underline font-medium transition-colors">
-          Terms and Conditions.
-        </a>
-      </p>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- why u choose us section -->
-<section class="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
-      <div class="relative isolate overflow-hidden text-gray-800 pt-16 after:pointer-events-none after:absolute after:inset-0 after:inset-ring after:inset-ring-white/10 md:pt-24 lg:flex lg:gap-x-20 lg:pt-0">
-        <div class="mx-auto max-w-md  lg:mx-0 lg:flex-auto lg:py-32">
-          <h1 class="text-4xl font-semibold tracking-tight text-balance sm:text-5xl">Why choose us?</h1>
-          <p class="mt-6 text-lg/8 text-pretty text-gray-600">We offer the best products at the best prices. We prioritize customer satisfaction and quality assurance. We guarantee fast shipping and easy returns.</p>
-          <div class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
-            <a href="#" class="rounded-md bg-gray-700 px-3.5 py-2.5 text-sm font-semibold text-white inset-ring inset-ring-white/5 hover:bg-gray-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"> Get started </a>
-            <a href="#" class="text-sm/6 font-semibold text-white hover:text-gray-100">
-              Learn more
-              <span aria-hidden="true">→</span>
-            </a>
+          <!-- Email Input with Label (Hidden for sighted users, visible to screen readers) -->
+          <div class="relative w-full sm:w-64 lg:w-80">
+            <label for="newsletter-email" class="sr-only">Email address</label>
+            <input id="newsletter-email" type="email" placeholder="Enter your email" required
+              class="w-full bg-white text-gray-800 placeholder-gray-500 border border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 ease-in-out" />
           </div>
-        </div>
-        <div class="relative h-80 mt-8">
-          <img  src="./images/whyChoseUsSec.jpg" alt="App screenshot" class="" />
+
+          <button type="submit"
+            class="w-full sm:w-auto bg-gray-800 hover:bg-grey-300 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 ease-in-out shadow-md hover:shadow-lg whitespace-nowrap flex-shrink-0">
+            Sign Up
+          </button>
+
+        </form>
+
+        <!-- Privacy Policy -->
+        <p class="mt-4 text-xs sm:text-sm text-grey-300">
+          By clicking Sign Up you're confirming that you agree with our
+          <br>
+          <a href="#" class="hover:text-gray-200 underline font-medium transition-colors">
+            Terms and Conditions.
+          </a>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- why u choose us section -->
+  <section class="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
+    <div
+      class="relative isolate overflow-hidden text-gray-800 pt-16 after:pointer-events-none after:absolute after:inset-0 after:inset-ring after:inset-ring-white/10 md:pt-24 lg:flex lg:gap-x-20 lg:pt-0">
+      <div class="mx-auto max-w-md  lg:mx-0 lg:flex-auto lg:py-32">
+        <h1 class="text-4xl font-semibold tracking-tight text-balance sm:text-5xl">Why choose us?</h1>
+        <p class="mt-6 text-lg/8 text-pretty text-gray-600">We offer the best products at the best prices. We prioritize
+          customer satisfaction and quality assurance. We guarantee fast shipping and easy returns.</p>
+        <div class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
+          <a href="#"
+            class="rounded-md bg-gray-700 px-3.5 py-2.5 text-sm font-semibold text-white inset-ring inset-ring-white/5 hover:bg-gray-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+            Get started </a>
+          <a href="#" class="text-sm/6 font-semibold text-white hover:text-gray-100">
+            Learn more
+            <span aria-hidden="true">→</span>
+          </a>
         </div>
       </div>
-</section>
-
-
-<section class="px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-  <div class="flex justify-between flex-wrap">
-    <div>
-      <h1 class="text-4xl font-semibold tracking-tight text-balance sm:text-5xl">Fragrance Moments</h1>
-      <p class="text-grey-300 py-3">Cheap affordable perfumes for everyone no matter the occasion no matter the budget.</p>
-    </div>
-    <div>
-      <button class="bg-gray-800 text-white p-3 text-base">
-        View all
-      </button>
-    </div>
-  </div>
-
-  <div class="mt-8 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8" id="pro"></div>
-
-</section>
-
-<section class="px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-  <div class="flex justify-between flex-wrap">
-    <div>
-      <h1 class="text-4xl font-semibold tracking-tight text-balance sm:text-5xl">Home Luxe</h1>
-      <p class="text-grey-300 py-3">We offer a wide range of furniture options to suit every style and budget.</p>
-    </div>
-    <div>
-      <button class="bg-gray-800 text-white p-3 text-base">
-        View all
-      </button>
-    </div>
-  </div>
-
-  <div class="mt-8 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8" id="pro2"></div>
-
-</section>
-
-<footer class="bg-slate-300 w-full text-gray-800 px-4 py-16 sm:px-6 sm:py-24  lg:px-8 ">
-  <div class="mx-auto flex justify-between flex-wrap">
-
-    <div class="md:col-span-1">
-      <div class="h-12 w-12 bg-gray-300 rounded-full flex items-center justify-center mb-4">
-        <span class="sr-only">Company Logo</span>
-        <img src="./images/LOGO.webp" alt="">
+      <div class="relative h-80 mt-8">
+        <img src="./images/whyChoseUsSec.jpg" alt="App screenshot" class="" />
       </div>
-      <p class="text-sm text-gray-500 leading-relaxed">
-        <!-- Your trusted source for modern design and quality products. -->
-      </p>
     </div>
+  </section>
 
-    <div>
-      <h3 class="font-bold text-lg mb-4">Shopping</h3>
-      <ul class="space-y-2 text-sm">
-        <li><a href="#" class="hover:text-blue-600 transition-colors">All Products</a></li>
-        <li><a href="#" class="hover:text-blue-600 transition-colors">Prefume</a></li>
-        <li><a href="#" class="hover:text-blue-600 transition-colors">Funitures</a></li>
-        <li><a href="#" class="hover:text-blue-600 transition-colors">Tables</a></li>
-      </ul>
-    </div>
 
-    <div>
-      <h3 class="font-bold text-lg mb-4">Blog</h3>
-      <ul class="space-y-2 text-sm">
-        <li><a href="#" class="hover:text-blue-600 transition-colors">All Posts</a></li>
-        <li><a href="#" class="hover:text-blue-600 transition-colors">Education</a></li>
-        <li><a href="#" class="hover:text-blue-600 transition-colors">Design</a></li>
-        <li><a href="#" class="hover:text-blue-600 transition-colors">Inspiration</a></li>
-        <li><a href="#" class="hover:text-blue-600 transition-colors">How To</a></li>
-      </ul>
-    </div>
-
-    <div>
-      <h3 class="font-bold text-lg mb-4">Subscribe</h3>
-      <p class="text-sm mb-4 text-gray-600">
-        Join our newsletter to stay up to date on new features and releases.
-      </p>
-      <form class="flex flex-col sm:flex-row gap-2">
-        <label for="email-subscribe" class="sr-only">Email address</label>
-        <input
-          id="email-subscribe"
-          type="email"
-          placeholder="Enter your email"
-          required
-          class="flex-grow bg-white px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-grey-500 focus:border-grey-500 transition"
-        />
-        <button
-          type="submit"
-          class="bg-gray-800 hover:bg-gray-900 text-white font-medium py-2 px-4 rounded-md transition shadow-sm hover:shadow-md whitespace-nowrap"
-        >
-          Subscribe
+  <section class="px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+    <div class="flex justify-between flex-wrap">
+      <div>
+        <h1 class="text-4xl font-semibold tracking-tight text-balance sm:text-5xl">Fragrance Moments</h1>
+        <p class="text-grey-300 py-3">Cheap affordable perfumes for everyone no matter the occasion no matter the
+          budget.</p>
+      </div>
+      <div>
+        <button class="bg-gray-800 text-white p-3 text-base">
+          View all
         </button>
-      </form>
+      </div>
     </div>
 
-  </div>
+    <div class="mt-8 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8" id="pro"></div>
 
-  <hr class="my-8" />
+  </section>
 
-  <div class="flex flex-col sm:flex-row justify-between items-center gap-4 text-lg text-gray-500">
-    <div class="flex flex-wrap gap-4">
-      <a href="#" class="hover:text-gray-700 transition">Privacy Policy</a>
-      <a href="#" class="hover:text-gray-700 transition">Terms of Service</a>
-      <!-- <a href="#" class="hover:text-gray-700 transition">Style Guide</a> -->
-      <a href="#" class="hover:text-gray-700 transition">Licensing</a>
-      <!-- <a href="#" class="hover:text-gray-700 transition">Change Log</a> -->
+  <section class="px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+    <div class="flex justify-between flex-wrap">
+      <div>
+        <h1 class="text-4xl font-semibold tracking-tight text-balance sm:text-5xl">Home Luxe</h1>
+        <p class="text-grey-300 py-3">We offer a wide range of furniture options to suit every style and budget.</p>
+      </div>
+      <div>
+        <button class="bg-gray-800 text-white p-3 text-base">
+          View all
+        </button>
+      </div>
     </div>
-    <div class="text-center sm:text-right">
-      <strong class="text-gray-800">Everyday Elegance</strong>, 2025 All Rights Reserved.
-    </div>
-    <div class="flex space-x-4">
-      <a href="#" aria-label="Facebook" class="text-gray-600 hover:text-gray-800 transition">
-        <i class="fa-brands fa-square-facebook"></i>
-      </a>
-      <a href="#" aria-label="LinkedIn" class="text-gray-600 hover:text-gray-800 transition">
-        <i class="fa-brands fa-square-linkedin"></i>
-      </a>
-      <a href="#" aria-label="Instagram" class="text-gray-600 hover:text-gray-800 transition">
-        <i class="fa-brands fa-square-instagram"></i>
-      </a>
-      <a href="#" aria-label="Twitter" class="text-gray-600 hover:text-gray-800 transition">
-         <i class="fa-brands fa-square-x-twitter"></i>
-      </a>
-    </div>
-  </div>
-</footer>
 
-<script src="scripts/index.js"></script>
+    <div class="mt-8 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8" id="pro2"></div>
+
+  </section>
+
+  <footer class="bg-slate-300 w-full text-gray-800 px-4 py-16 sm:px-6 sm:py-24  lg:px-8 ">
+    <div class="mx-auto flex justify-between flex-wrap">
+
+      <div class="md:col-span-1">
+        <div class="h-12 w-12 bg-gray-300 rounded-full flex items-center justify-center mb-4">
+          <span class="sr-only">Company Logo</span>
+          <img src="./images/LOGO.webp" alt="">
+        </div>
+        <p class="text-sm text-gray-500 leading-relaxed">
+          <!-- Your trusted source for modern design and quality products. -->
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-lg mb-4">Shopping</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#" class="hover:text-blue-600 transition-colors">All Products</a></li>
+          <li><a href="#" class="hover:text-blue-600 transition-colors">Prefume</a></li>
+          <li><a href="#" class="hover:text-blue-600 transition-colors">Funitures</a></li>
+          <li><a href="#" class="hover:text-blue-600 transition-colors">Tables</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-lg mb-4">Blog</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#" class="hover:text-blue-600 transition-colors">All Posts</a></li>
+          <li><a href="#" class="hover:text-blue-600 transition-colors">Education</a></li>
+          <li><a href="#" class="hover:text-blue-600 transition-colors">Design</a></li>
+          <li><a href="#" class="hover:text-blue-600 transition-colors">Inspiration</a></li>
+          <li><a href="#" class="hover:text-blue-600 transition-colors">How To</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-lg mb-4">Subscribe</h3>
+        <p class="text-sm mb-4 text-gray-600">
+          Join our newsletter to stay up to date on new features and releases.
+        </p>
+        <form class="flex flex-col sm:flex-row gap-2">
+          <label for="email-subscribe" class="sr-only">Email address</label>
+          <input id="email-subscribe" type="email" placeholder="Enter your email" required
+            class="flex-grow bg-white px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-grey-500 focus:border-grey-500 transition" />
+          <button type="submit"
+            class="bg-gray-800 hover:bg-gray-900 text-white font-medium py-2 px-4 rounded-md transition shadow-sm hover:shadow-md whitespace-nowrap">
+            Subscribe
+          </button>
+        </form>
+      </div>
+
+    </div>
+
+    <hr class="my-8" />
+
+    <div class="flex flex-col sm:flex-row justify-between items-center gap-4 text-lg text-gray-500">
+      <div class="flex flex-wrap gap-4">
+        <a href="#" class="hover:text-gray-700 transition">Privacy Policy</a>
+        <a href="#" class="hover:text-gray-700 transition">Terms of Service</a>
+        <!-- <a href="#" class="hover:text-gray-700 transition">Style Guide</a> -->
+        <a href="#" class="hover:text-gray-700 transition">Licensing</a>
+        <!-- <a href="#" class="hover:text-gray-700 transition">Change Log</a> -->
+      </div>
+      <div class="text-center sm:text-right">
+        <strong class="text-gray-800">Everyday Elegance</strong>, 2025 All Rights Reserved.
+      </div>
+      <div class="flex space-x-4">
+        <a href="#" aria-label="Facebook" class="text-gray-600 hover:text-gray-800 transition">
+          <i class="fa-brands fa-square-facebook"></i>
+        </a>
+        <a href="#" aria-label="LinkedIn" class="text-gray-600 hover:text-gray-800 transition">
+          <i class="fa-brands fa-square-linkedin"></i>
+        </a>
+        <a href="#" aria-label="Instagram" class="text-gray-600 hover:text-gray-800 transition">
+          <i class="fa-brands fa-square-instagram"></i>
+        </a>
+        <a href="#" aria-label="Twitter" class="text-gray-600 hover:text-gray-800 transition">
+          <i class="fa-brands fa-square-x-twitter"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts/index.js"></script>
 </body>
+
 </html>
