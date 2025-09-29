@@ -175,7 +175,7 @@ fetch('https://dummyjson.com/products', {
       // console.log(value);
       // the best of the best product layer out connected
       return `
-            <div class="group relative">
+      <div class="group relative">
         <img src="${value.thumbnail}" alt="${value.title}" class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80" />
         <div class="mt-4 flex justify-between">
           <div>
