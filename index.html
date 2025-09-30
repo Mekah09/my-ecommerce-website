@@ -10,12 +10,14 @@
     integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <title>Everyday Elegance</title>
 </head>
 
 <body>
   <!-- nav bar with an hamburger button -->
-  <header class="fixed inset-x-0 top-0 z-50 bg-white shadow-sm">
+  <header class="absolute inset-x-0 top-0 z-50">
     <nav aria-label="Global" class="flex items-center justify-between p-6 lg:px-8">
       <div class="flex lg:flex-1 text-lg">
         <a href="#" class="-m-1.5 p-1.5">
@@ -97,7 +99,7 @@
   </header>
 
   <!-- Hero section -->
-  <section class="relative isolate px-8 pt-16 lg:px-10">
+  <section class="relative isolate px-8 pt-16 lg:px-10" data-aos="fade-up">
     <div class="mx-auto max-w-2xl py-7 sm:py-17 lg:py-17">
       <div class="text-center">
         <h1 class="text-5xl font-semibold tracking-tight text-balance text-gray-800 sm:text-7xl">Everyday Elegance</h1>
@@ -118,7 +120,7 @@
   </section>
 
   <!-- section about the best of the best products the products are gotten for the api and extracted from it -->
-  <section>
+  <section data-aos="fade-up">
 
     <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
 
@@ -137,7 +139,7 @@
   </section>
 
   <!-- a signup to newsletter section -->
-  <section
+  <section data-aos="fade-up"
     class="bg-slate-300 text-gray-800 py-20 px-4 sm:px-6 lg:px-8 mx-auto max-w-2xl mx-4 sm:mx-6 lg:max-w-7xl lg:mx-8">
     <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
 
@@ -183,7 +185,7 @@
 
 
   <!-- why u choose us section -->
-  <section class="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
+  <section class="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8" data-aos="fade-up">
     <div
       class="relative isolate overflow-hidden text-gray-800 pt-16 after:pointer-events-none after:absolute after:inset-0 after:inset-ring after:inset-ring-white/10 md:pt-24 lg:flex lg:gap-x-20 lg:pt-0">
       <div class="mx-auto max-w-md  lg:mx-0 lg:flex-auto lg:py-32">
@@ -207,7 +209,7 @@
   </section>
 
 
-  <section class="px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+  <section class="px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 " data-aos="fade-up">
     <div class="flex justify-between flex-wrap">
       <div>
         <h1 class="text-4xl font-semibold tracking-tight text-balance sm:text-5xl">Fragrance Moments</h1>
@@ -225,7 +227,7 @@
 
   </section>
 
-  <section class="px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+  <section class="px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8" data-aos="fade-up">
     <div class="flex justify-between flex-wrap">
       <div>
         <h1 class="text-4xl font-semibold tracking-tight text-balance sm:text-5xl">Home Luxe</h1>
@@ -242,7 +244,7 @@
 
   </section>
 
-  <footer class="bg-slate-300 w-full text-gray-800 px-4 py-16 sm:px-6 sm:py-24  lg:px-8 ">
+  <footer class="bg-slate-300 w-full text-gray-800 px-4 py-16 sm:px-6 sm:py-24  lg:px-8 " data-aos="fade-up">
     <div class="mx-auto flex justify-between flex-wrap">
 
       <div class="md:col-span-1">
@@ -325,6 +327,13 @@
   </footer>
 
   <script src="scripts/index.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000, // animation duration (ms)
+      once: true,     // play only once
+    });
+  </script>
 </body>
 
 </html>

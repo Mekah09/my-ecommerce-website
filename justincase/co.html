@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Contact Us - Everyday Elegance</title>
+</head>
+
+<body class="bg-gradient-to-br from-slate-50 to-slate-100">
+  <!-- Navigation -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200 shadow-sm">
+    <nav class="max-w-7xl mx-auto flex items-center justify-between p-4 lg:px-8">
+      <div class="flex items-center gap-8">
+        <a href="/index.html" class="flex items-center gap-2">
+          <img src="/images/LOGO.webp" alt="Logo" class="h-10 w-auto" />
+        </a>
+        <div class="hidden lg:flex items-center gap-6">
+          <a href="/pages/products.html" class="text-sm font-medium text-gray-700 hover:text-gray-900 transition">Products</a>
+          <a href="/pages/shopAll.html" class="text-sm font-medium text-gray-700 hover:text-gray-900 transition">Shop All</a>
+          <a href="/pages/blog.html" class="text-sm font-medium text-gray-700 hover:text-gray-900 transition">Blog</a>
+          <a href="/pages/contact.html" class="text-sm font-medium text-gray-900 hover:text-gray-600 transition">Contact</a>
+        </div>
+      </div>
+      
+      <div class="flex items-center gap-4">
+        <button class="hidden lg:block text-gray-700 hover:text-gray-900">
+          <i class="fa-solid fa-magnifying-glass text-lg"></i>
+        </button>
+        <button class="hidden lg:block text-gray-700 hover:text-gray-900">
+          <i class="fa-regular fa-heart text-lg"></i>
+        </button>
+        <button class="relative p-2 hover:bg-gray-100 rounded-full transition">
+          <i class="fa-solid fa-shopping-bag text-lg text-gray-700"></i>
+          <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">0</span>
+        </button>
+        <button class="hidden lg:block px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-full hover:bg-gray-800 transition">
+          Sign In
+        </button>
+        <button command="show-modal" commandfor="mobile-menu" class="lg:hidden text-gray-700">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <el-dialog>
+      <dialog id="mobile-menu" class="backdrop:bg-black/50 lg:hidden">
+        <div class="fixed inset-0 z-50">
+          <div class="fixed inset-y-0 right-0 w-full max-w-sm bg-white shadow-2xl">
+            <div class="flex items-center justify-between p-6 border-b">
+              <img src="/images/LOGO.webp" alt="" class="h-8" />
+              <button command="close" commandfor="mobile-menu" class="p-2">
+                <i class="fa-solid fa-xmark text-xl"></i>
+              </button>
+            </div>
+            <div class="p-6 space-y-4">
+              <a href="/pages/products.html" class="block text-lg font-medium text-gray-700 py-2">Products</a>
+              <a href="/pages/shopAll.html" class="block text-lg font-medium text-gray-700 py-2">Shop All</a>
+              <a href="/pages/blog.html" class="block text-lg font-medium text-gray-700 py-2">Blog</a>
+              <a href="/pages/contact.html" class="block text-lg font-medium text-gray-900 py-2">Contact</a>
+              <div class="pt-4 border-t">
+                <button class="w-full px-4 py-3 bg-gray-900 text-white font-medium rounded-lg">Sign In</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </dialog>
+    </el-dialog>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="pt-32 pb-16 px-4 lg:px-8 max-w-7xl mx-auto text-center">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-5xl lg:text-6xl font-bold text-gray-900 mb-6 tracking-tight">Get in Touch</h1>
+      <p class="text-lg text-gray-600 mb-8">Have a question or feedback? We'd love to hear from you. Our team is here to help!</p>
+      
+      <!-- Quick Contact Info -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+          <div class="w-14 h-14 bg-gray-900 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fa-solid fa-envelope text-white text-xl"></i>
+          </div>
+          <h3 class="font-bold text-gray-900 mb-2">Email Us</h3>
+          <p class="text-sm text-gray-600">support@everydayelegance.com</p>
+        </div>
+        
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+          <div class="w-14 h-14 bg-gray-900 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fa-solid fa-phone text-white text-xl"></i>
+          </div>
+          <h3 class="font-bold text-gray-900 mb-2">Call Us</h3>
+          <p class="text-sm text-gray-600">+1 (555) 123-4567</p>
+        </div>
+        
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+          <div class="w-14 h-14 bg-gray-900 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fa-solid fa-location-dot text-white text-xl"></i>
+          </div>
+          <h3 class="font-bold text-gray-900 mb-2">Visit Us</h3>
+          <p class="text-sm text-gray-600">123 Fashion Ave, New York</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form & Map Section -->
+  <section class="px-4 lg:px-8 pb-20 max-w-7xl mx-auto">
+    <div class="grid lg:grid-cols-2 gap-8">
+      
+      <!-- Contact Form -->
+      <div class="bg-white rounded-3xl p-8 lg:p-12 shadow-sm border border-gray-100">
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">Send us a Message</h2>
+        <p class="text-gray-600 mb-8">Fill out the form below and we'll get back to you within 24 hours.</p>
+        
+        <form id="contactForm" class="space-y-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label for="firstName" class="block text-sm font-semibold text-gray-900 mb-2">First Name *</label>
+              <input 
+                type="text" 
+                id="firstName" 
+                required
+                class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-gray-900 focus:ring-2 focus:ring-gray-900 transition"
+                placeholder="John"
+              />
+            </div>
+            
+            <div>
+              <label for="lastName" class="block text-sm font-semibold text-gray-900 mb-2">Last Name *</label>
+              <input 
+                type="text" 
+                id="lastName" 
+                required
+                class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-gray-900 focus:ring-2 focus:ring-gray-900 transition"
+                placeholder="Doe"
+              />
+            </div>
+          </div>
+          
+          <div>
+            <label for="email" class="block text-sm font-semibold text-gray-900 mb-2">Email Address *</label>
+            <input 
+              type="email" 
+              id="email" 
+              required
+              class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-gray-900 focus:ring-2 focus:ring-gray-900 transition"
+              placeholder="john.doe@example.com"
+            />
+          </div>
+          
+          <div>
+            <label for="phone" class="block text-sm font-semibold text-gray-900 mb-2">Phone Number</label>
+            <input 
+              type="tel" 
+              id="phone"
+              class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-gray-900 focus:ring-2 focus:ring-gray-900 transition"
+              placeholder="+1 (555) 000-0000"
+            />
+          </div>
+          
+          <div>
+            <label for="subject" class="block text-sm font-semibold text-gray-900 mb-2">Subject *</label>
+            <select 
+              id="subject" 
+              required
+              class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-gray-900 focus:ring-2 focus:ring-gray-900 transition bg-white"
+            >
+              <option value="">Select a subject</option>
+              <option value="order">Order Inquiry</option>
+              <option value="product">Product Question</option>
+              <option value="shipping">Shipping & Delivery</option>
+              <option value="return">Returns & Refunds</option>
+              <option value="technical">Technical Support</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          
+          <div>
+            <label for="message" class="block text-sm font-semibold text-gray-900 mb-2">Message *</label>
+            <textarea 
+              id="message" 
+              rows="5" 
+              required
+              class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-gray-900 focus:ring-2 focus:ring-gray-900 transition resize-none"
+              placeholder="Tell us how we can help you..."
+            ></textarea>
+          </div>
+          
+          <div class="flex items-start">
+            <input 
+              type="checkbox" 
+              id="newsletter" 
+              class="w-5 h-5 mt-0.5 border-gray-300 rounded text-gray-900 focus:ring-gray-900"
+            />
+            <label for="newsletter" class="ml-3 text-sm text-gray-600">
+              I'd like to receive updates and promotional emails from Everyday Elegance
+            </label>
+          </div>
+          
+          <button 
+            type="submit"
+            class="w-full py-4 bg-gray-900 text-white font-bold rounded-xl hover:bg-gray-800 transition shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+          >
+            <i class="fa-solid fa-paper-plane"></i>
+            Send Message
+          </button>
+        </form>
+      </div>
+
+      <!-- Info & FAQ -->
+      <div class="space-y-6">
+        
+        <!-- Business Hours -->
+        <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center">
+              <i class="fa-solid fa-clock text-white text-lg"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900">Business Hours</h3>
+          </div>
+          
+          <div class="space-y-3">
+            <div class="flex justify-between py-2 border-b border-gray-100">
+              <span class="font-medium text-gray-900">Monday - Friday</span>
+              <span class="text-gray-600">9:00 AM - 6:00 PM</span>
+            </div>
+            <div class="flex justify-between py-2 border-b border-gray-100">
+              <span class="font-medium text-gray-900">Saturday</span>
+              <span class="text-gray-600">10:00 AM - 4:00 PM</span>
+            </div>
+            <div class="flex justify-between py-2">
+              <span class="font-medium text-gray-900">Sunday</span>
+              <span class="text-gray-600">Closed</span>
+            </div>
+          </div>
+          
+          <div class="mt-6 p-4 bg-gray-50 rounded-xl">
+            <p class="text-sm text-gray-600">
+              <i class="fa-solid fa-info-circle text-gray-900 mr-2"></i>
+              <strong>Note:</strong> Email support is available 24/7. We typically respond within 24 hours.
+            </p>
+          </div>
+        </div>
+
+        <!-- Social Media -->
+        <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center">
+              <i class="fa-solid fa-share-nodes text-white text-lg"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900">Connect With Us</h3>
+          </div>
+          
+          <p class="text-gray-600 mb-6">Follow us on social media for the latest updates, offers, and inspiration!</p>
+          
+          <div class="grid grid-cols-2 gap-4">
+            <a href="#" class="flex items-center gap-3 p-4 border border-gray-200 rounded-xl hover:border-gray-900 hover:bg-gray-50 transition group">
+              <i class="fa-brands fa-facebook text-2xl text-blue-600"></i>
+              <div>
+                <p class="font-semibold text-sm text-gray-900 group-hover:text-gray-900">Facebook</p>
+                <p class="text-xs text-gray-500">@everydayelegance</p>
+              </div>
+            </a>
+            
+            <a href="#" class="flex items-center gap-3 p-4 border border-gray-200 rounded-xl hover:border-gray-900 hover:bg-gray-50 transition group">
+              <i class="fa-brands fa-instagram text-2xl text-pink-600"></i>
+              <div>
+                <p class="font-semibold text-sm text-gray-900 group-hover:text-gray-900">Instagram</p>
+                <p class="text-xs text-gray-500">@everydayelegance</p>
+              </div>
+            </a>
+            
+            <a href="#" class="flex items-center gap-3 p-4 border border-gray-200 rounded-xl hover:border-gray-900 hover:bg-gray-50 transition group">
+              <i class="fa-brands fa-twitter text-2xl text-blue-400"></i>
+              <div>
+                <p class="font-semibold text-sm text-gray-900 group-hover:text-gray-900">Twitter</p>
+                <p class="text-xs text-gray-500">@everydayelegance</p>
+              </div>
+            </a>
+            
+            <a href="#" class="flex items-center gap-3 p-4 border border-gray-200 rounded-xl hover:border-gray-900 hover:bg-gray-50 transition group">
+              <i class="fa-brands fa-linkedin text-2xl text-blue-700"></i>
+              <div>
+                <p class="font-semibold text-sm text-gray-900 group-hover:text-gray-900">LinkedIn</p>
+                <p class="text-xs text-gray-500">@everydayelegance</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick FAQ -->
+        <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
+          <h3 class="text-2xl font-bold text-gray-900 mb-6">Quick FAQ</h3>
+          
+          <div class="space-y-4">
+            <details class="group">
+              <summary class="flex items-center justify-between cursor-pointer font-semibold text-gray-900 py-3 border-b border-gray-100">
+                How long does shipping take?
+                <i class="fa-solid fa-chevron-down text-sm group-open:rotate-180 transition-transform"></i>
+              </summary>
+              <p class="text-gray-600 text-sm mt-3">Standard shipping takes 3-5 business days. Express shipping is available for 1-2 day delivery.</p>
+            </details>
+            
+            <details class="group">
+              <summary class="flex items-center justify-between cursor-pointer font-semibold text-gray-900 py-3 border-b border-gray-100">
+                What is your return policy?
+                <i class="fa-solid fa-chevron-down text-sm group-open:rotate-180 transition-transform"></i>
+              </summary>
+              <p class="text-gray-600 text-sm mt-3">We offer a 30-day return policy on all items. Products must be in original condition with tags attached.</p>
+            </details>
+            
+            <details class="group">
+              <summary class="flex items-center justify-between cursor-pointer font-semibold text-gray-900 py-3 border-b border-gray-100">
+                Do you ship internationally?
+                <i class="fa-solid fa-chevron-down text-sm group-open:rotate-180 transition-transform"></i>
+              </summary>
+              <p class="text-gray-600 text-sm mt-3">Yes! We ship to over 50 countries worldwide. International shipping times vary by location.</p>
+            </details>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section class="px-4 lg:px-8 pb-20 max-w-7xl mx-auto">
+    <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100">
+      <div class="aspect-video bg-gray-200 relative">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.15830869428!2d-74.119763973046!3d40.69766374874431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s"
+          class="w-full h-full border-0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="bg-gray-900 text-white py-20 px-4 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl lg:text-4xl font-bold mb-4">Stay Updated</h2>
+      <p class="text-gray-400 mb-8">Subscribe to our newsletter for exclusive offers and updates</p>
+      
+      <form class="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
+        <input 
+          type="email" 
+          placeholder="Enter your email address"
+          class="flex-1 px-6 py-4 rounded-xl border-2 border-gray-700 bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:border-white transition"
+          required
+        />
+        <button 
+          type="submit"
+          class="px-8 py-4 bg-white text-gray-900 font-bold rounded-xl hover:bg-gray-100 transition shadow-lg"
+        >
+          Subscribe
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-slate-300 text-gray-800 px-4 py-16 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <div>
+          <img src="/images/LOGO.webp" alt="Logo" class="h-10 mb-4" />
+          <p class="text-sm text-gray-600">Your trusted source for everyday elegance and style.</p>
+        </div>
+        
+        <div>
+          <h4 class="font-bold text-lg mb-4">Shop</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:text-gray-900 transition">All Products</a></li>
+            <li><a href="#" class="hover:text-gray-900 transition">New Arrivals</a></li>
+            <li><a href="#" class="hover:text-gray-900 transition">Best Sellers</a></li>
+            <li><a href="#" class="hover:text-gray-900 transition">Sale</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-bold text-lg mb-4">Help</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:text-gray-900 transition">Contact Us</a></li>
+            <li><a href="#" class="hover:text-gray-900 transition">Shipping Info</a></li>
+            <li><a href="#" class="hover:text-gray-900 transition">Returns</a></li>
+            <li><a href="#" class="hover:text-gray-900 transition">FAQ</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-bold text-lg mb-4">Legal</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:text-gray-900 transition">Privacy Policy</a></li>
+            <li><a href="#" class="hover:text-gray-900 transition">Terms of Service</a></li>
+            <li><a href="#" class="hover:text-gray-900 transition">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-400 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-sm text-gray-600">© 2025 Everyday Elegance. All rights reserved.</p>
+        <div class="flex gap-4">
+          <a href="#" class="text-gray-600 hover:text-gray-900 transition">
+            <i class="fa-brands fa-facebook text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-600 hover:text-gray-900 transition">
+            <i class="fa-brands fa-instagram text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-600 hover:text-gray-900 transition">
+            <i class="fa-brands fa-twitter text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-600 hover:text-gray-900 transition">
+            <i class="fa-brands fa-linkedin text-xl"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Form Submission Handler
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get form values
+      const firstName = document.getElementById('firstName').value;
+      const lastName = document.getElementById('lastName').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+      const newsletter = document.getElementById('newsletter').checked;
+      
+      // Show success notification
+      showNotification('Thank you! Your message has been sent successfully. We\'ll get back to you soon!', 'success');
+      
+      // Reset form
+      this.reset();
+      
+      // Log submission (in real app, this would be sent to backend)
+      console.log('Form Submitted:', {
+        firstName,
+        lastName,
+        email,
+        phone,
+        subject,
+        message,
+        newsletter
+      });
+    });
+    
+    function showNotification(message, type = 'success') {
+      const notification = document.createElement('div');
+      const bgColor = type === 'success' ? 'bg-green-500' : 'bg-red-500';
+      notification.className = `fixed top-24 right-4 ${bgColor} text-white px-6 py-4 rounded-xl shadow-2xl z-50 flex items-center gap-3 animate-slide-in max-w-md`;
+      notification.innerHTML = `
+        <i class="fa-solid fa-circle-check text-xl"></i>
+        <span class="font-medium">${message}</span>
+      `;
+      
+      document.body.appendChild(notification);
+      
+      setTimeout(() => {
+        notification.style.opacity = '0';
+        notification.style.transform = 'translateX(100%)';
+        setTimeout(() => notification.remove(), 300);
+      }, 5000);
+    }
+  </script>
+
+  <style>
+    @keyframes slide-in {
+      from {
+        opacity: 0;
+        transform: translateX(100%);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .animate-slide-in {
+      animation: slide-in 0.3s ease-out;
+      transition: all 0.3s ease-out;
+    }
+  </style>
+</body>
+
+</html>
