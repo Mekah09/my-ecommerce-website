@@ -367,6 +367,74 @@
     </div>
   </section>
 
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert Message Example</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-gray-100 dark:bg-gray-900">
+    <div class="container mx-auto px-4 py-8">
+        <div class="text-center">
+            <button id="showAlertBtn" class="px-6 py-3 mb-6 text-white bg-emerald-500 rounded-lg hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-opacity-75 transition-colors duration-200">
+                Add to Cart
+            </button>
+        </div>
+    </div>
+
+    <!-- Alert positioned at top right -->
+    <div class="fixed top-4 right-4 z-50">
+        <div id="alertMessage" class="hidden w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 animate-fade-in-slide">
+            <div class="flex items-center justify-center w-12 bg-emerald-500">
+                <svg class="w-6 h-6 text-white fill-current" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM16.6667 28.3333L8.33337 20L10.6834 17.65L16.6667 23.6166L29.3167 10.9666L31.6667 13.3333L16.6667 28.3333Z" />
+                </svg>
+            </div>
+
+            <div class="px-4 py-2 -mx-3">
+                <div class="mx-3">
+                    <span class="font-semibold text-emerald-500 dark:text-emerald-400">Success</span>
+                    <p class="text-sm text-gray-600 dark:text-gray-200">Added to cart.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        @keyframes fade-in-slide {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        .animate-fade-in-slide {
+            animation: fade-in-slide 0.3s ease-out forwards;
+        }
+    </style>
+
+    <script>
+        const showAlertBtn = document.getElementById('showAlertBtn');
+        const alertMessage = document.getElementById('alertMessage');
+
+        showAlertBtn.addEventListener('click', () => {
+            // Show the alert
+            alertMessage.classList.remove('hidden');
+            
+            // Hide the alert after 3 seconds
+            setTimeout(() => {
+                alertMessage.classList.add('hidden');
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
+
   <!-- Footer -->
   <footer class="bg-slate-300 text-gray-800 px-4 py-16 lg:px-8">
     <div class="max-w-7xl mx-auto">
