@@ -44,7 +44,48 @@
         <a href="#"
           class="rounded-md bg-gray-800 mr-4 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-grey-400 focus-visible:outline-2 focus-visible:outline-offset-2">Sign
           Up</a>
-        <a href="#" class="text-2xl font-semibold text-gray-800"><i class="fa-solid fa-cart-shopping"></i></a>
+        <button command="show-modal" commandfor="drawer"
+          class="bg-white/10 text-sm font-semibold text-white hover:bg-white/20">
+          <a href="#" class="text-2xl font-semibold text-gray-800"><i class="fa-solid fa-cart-shopping"></i></a>
+          <span id="cartCount"
+            class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">0</span>
+        </button>
+        <el-dialog>
+          <dialog id="drawer" aria-labelledby="drawer-title"
+            class="fixed inset-0 size-auto max-h-none max-w-none overflow-hidden bg-transparent not-open:hidden backdrop:bg-transparent">
+            <el-dialog-backdrop
+              class="absolute inset-0 bg-gray-900/50 transition-opacity duration-500 ease-in-out data-closed:opacity-0"></el-dialog-backdrop>
+
+            <div tabindex="0" class="absolute inset-0 pl-10 focus:outline-none sm:pl-16">
+              <el-dialog-panel
+                class="group/dialog-panel relative ml-auto block size-full max-w-md transform transition duration-500 ease-in-out data-closed:translate-x-full sm:duration-700">
+                <!-- Close button, show/hide based on slide-over state. -->
+                <div
+                  class="absolute top-0 left-0 -ml-8 flex pt-4 pr-2 duration-500 ease-in-out group-data-closed/dialog-panel:opacity-0 sm:-ml-10 sm:pr-4">
+                  <button type="button" command="close" commandfor="drawer"
+                    class="relative rounded-md text-gray-400 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+                    <span class="absolute -inset-2.5"></span>
+                    <span class="sr-only">Close panel</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon"
+                      aria-hidden="true" class="size-6">
+                      <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </button>
+                </div>
+
+                <div
+                  class="relative flex h-full flex-col overflow-y-auto bg-white py-6 shadow-xl after:absolute after:inset-y-0 after:left-0 after:w-px after:bg-white/10">
+                  <div class="px-4 sm:px-6">
+                    <h2 id="drawer-title" class="text-base font-semibold text-gray-800">My carts</h2>
+                  </div>
+                  <div class="relative mt-6 flex-1 px-4 sm:px-6">
+                    <!-- Your content -->
+                  </div>
+                </div>
+              </el-dialog-panel>
+            </div>
+          </dialog>
+        </el-dialog>
         <!-- <a href="#" class="text-sm/6 font-semibold text-white">Log in <span aria-hidden="true">&rarr;</span></a> -->
       </div>
     </nav>
@@ -97,7 +138,7 @@
     </el-dialog>
   </header>
 
-    <section class="pt-32 pb-12 px-4 lg:px-8 max-w-7xl mx-auto">
+  <section class="pt-32 pb-12 px-4 lg:px-8 max-w-7xl mx-auto">
     <div class="text-center mb-12">
       <h1 class="text-5xl lg:text-6xl font-bold text-gray-900 mb-4 tracking-tight">Discover Amazing Products</h1>
       <p class="text-lg text-gray-600 max-w-2xl mx-auto">Curated collection of premium items at unbeatable prices</p>
@@ -106,14 +147,11 @@
     <!-- Enhanced Search Bar -->
     <div class="max-w-3xl mx-auto">
       <div class="relative">
-        <input 
-          type="text" 
-          id="searchInput" 
-          placeholder="Search for products, brands, and more..." 
-          class="w-full px-6 py-4 pl-14 pr-32 text-lg border-2 border-gray-200 rounded-2xl focus:border-gray-900 focus:outline-none bg-white shadow-sm transition"
-        />
+        <input type="text" id="searchInput" placeholder="Search for products, brands, and more..."
+          class="w-full px-6 py-4 pl-14 pr-32 text-lg border-2 border-gray-200 rounded-2xl focus:border-gray-900 focus:outline-none bg-white shadow-sm transition" />
         <i class="fa-solid fa-magnifying-glass absolute left-5 top-1/2 -translate-y-1/2 text-gray-400 text-xl"></i>
-        <button class="absolute right-2 top-1/2 -translate-y-1/2 px-6 py-2 bg-gray-900 text-white font-medium rounded-xl hover:bg-gray-800 transition">
+        <button
+          class="absolute right-2 top-1/2 -translate-y-1/2 px-6 py-2 bg-gray-900 text-white font-medium rounded-xl hover:bg-gray-800 transition">
           Search
         </button>
       </div>
@@ -122,22 +160,23 @@
   <!-- Filters & Products -->
   <section class="max-w-7xl mx-auto px-4 lg:px-8 pb-20">
     <div class="flex gap-8">
-      
+
       <!-- Modern Sidebar -->
       <aside class="hidden lg:block w-72 flex-shrink-0">
         <div class="sticky top-24 space-y-6">
-          
+
           <!-- Categories Card -->
           <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
             <h3 class="text-lg font-bold text-gray-900 mb-4">Categories</h3>
             <div class="space-y-3" id="categoryFilters">
               <label class="flex items-center justify-between cursor-pointer group">
                 <div class="flex items-center">
-                  <input type="radio" value="all" class="category-filter w-5 h-5 rounded border-gray-300 text-gray-900 focus:ring-gray-900" checked>
+                  <input type="radio" value="all"
+                    class="category-filter w-5 h-5 rounded border-gray-300 text-gray-900 focus:ring-gray-900" checked>
                   <span class="ml-3 text-sm font-medium text-gray-700 group-hover:text-gray-900">All Products</span>
                 </div>
               </label>
-              
+
             </div>
           </div>
 
@@ -146,23 +185,28 @@
             <h3 class="text-lg font-bold text-gray-900 mb-4">Price Range</h3>
             <div class="space-y-3">
               <label class="flex items-center cursor-pointer group">
-                <input type="radio" name="price" value="all" class="price-filter w-5 h-5 text-gray-900 focus:ring-gray-900" checked>
+                <input type="radio" name="price" value="all"
+                  class="price-filter w-5 h-5 text-gray-900 focus:ring-gray-900" checked>
                 <span class="ml-3 text-sm font-medium text-gray-700 group-hover:text-gray-900">All Prices</span>
               </label>
               <label class="flex items-center cursor-pointer group">
-                <input type="radio" name="price" value="0-50" class="price-filter w-5 h-5 text-gray-900 focus:ring-gray-900">
+                <input type="radio" name="price" value="0-50"
+                  class="price-filter w-5 h-5 text-gray-900 focus:ring-gray-900">
                 <span class="ml-3 text-sm font-medium text-gray-700 group-hover:text-gray-900">Under $50</span>
               </label>
               <label class="flex items-center cursor-pointer group">
-                <input type="radio" name="price" value="50-100" class="price-filter w-5 h-5 text-gray-900 focus:ring-gray-900">
+                <input type="radio" name="price" value="50-100"
+                  class="price-filter w-5 h-5 text-gray-900 focus:ring-gray-900">
                 <span class="ml-3 text-sm font-medium text-gray-700 group-hover:text-gray-900">$50 - $100</span>
               </label>
               <label class="flex items-center cursor-pointer group">
-                <input type="radio" name="price" value="100-500" class="price-filter w-5 h-5 text-gray-900 focus:ring-gray-900">
+                <input type="radio" name="price" value="100-500"
+                  class="price-filter w-5 h-5 text-gray-900 focus:ring-gray-900">
                 <span class="ml-3 text-sm font-medium text-gray-700 group-hover:text-gray-900">$100 - $500</span>
               </label>
               <label class="flex items-center cursor-pointer group">
-                <input type="radio" name="price" value="500-5000" class="price-filter w-5 h-5 text-gray-900 focus:ring-gray-900">
+                <input type="radio" name="price" value="500-5000"
+                  class="price-filter w-5 h-5 text-gray-900 focus:ring-gray-900">
                 <span class="ml-3 text-sm font-medium text-gray-700 group-hover:text-gray-900">$500+</span>
               </label>
             </div>
@@ -197,7 +241,8 @@
             </div>
           </div>
 
-          <button id="clearFilters" class="w-full px-6 py-3 border-2 border-gray-900 text-gray-900 font-medium rounded-xl hover:bg-gray-900 hover:text-white transition">
+          <button id="clearFilters"
+            class="w-full px-6 py-3 border-2 border-gray-900 text-gray-900 font-medium rounded-xl hover:bg-gray-900 hover:text-white transition">
             Clear All Filters
           </button>
         </div>
@@ -205,12 +250,13 @@
 
       <!-- Products Area -->
       <div class="flex-1">
-        
+
         <!-- Top Bar -->
         <div class="flex items-center justify-between mb-6">
           <!-- <p class="text-sm text-gray-600" id="productCount">Loading products...</p> -->
           <div class="flex items-center gap-3">
-            <select id="sortSelect" class="px-4 py-2 border border-gray-200 rounded-lg text-sm font-medium focus:outline-none focus:border-gray-900 bg-white">
+            <select id="sortSelect"
+              class="px-4 py-2 border border-gray-200 rounded-lg text-sm font-medium focus:outline-none focus:border-gray-900 bg-white">
               <option value="default">Sort by: Featured</option>
               <option value="price-low">Price: Low to High</option>
               <option value="price-high">Price: High to Low</option>
@@ -236,11 +282,11 @@
         </div>
       </div> -->
 
-    </div>
+      </div>
   </section>
 
   <!-- Footer -->
-    <footer class="bg-slate-300 w-full text-gray-800 px-4 py-16 sm:px-6 sm:py-24  lg:px-8 ">
+  <footer class="bg-slate-300 w-full text-gray-800 px-4 py-16 sm:px-6 sm:py-24  lg:px-8 ">
     <div class="mx-auto flex justify-between flex-wrap">
 
       <div class="md:col-span-1">

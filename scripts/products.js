@@ -47,7 +47,9 @@ fetch('https://dummyjson.com/products?limit=100', {
 
               </div>
             </div>
-            <button id="showAlertBtn" class="w-full py-3 bg-gray-900 text-white font-semibold rounded-xl hover:bg-gray-800 transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2">
+            <button 
+             onclick="addToCart(${value.id}, '${value.title}', ${value.price}, '${value.thumbnail}')"
+              class="w-full py-3 bg-gray-900 text-white font-semibold rounded-xl hover:bg-gray-800 transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2">
               <i class="fa-solid fa-cart-plus"></i>
               Add to Cart
             </button>
@@ -57,3 +59,24 @@ fetch('https://dummyjson.com/products?limit=100', {
       `;
     }).join('');
   })
+
+function addToCart(id, title, image, price) {
+  // alert("Button clicked")
+  // console.log(id, title, image, price)
+
+  const cartItem = JSON.parse(localStorage.getItem('carts')) || [];
+  // console.log(cartItem)
+  let productCart = {
+    id: id,
+    title: title,
+    image: image,
+    price: price
+  }
+
+  cartItem.push(productCart);
+  // console.log(cartItem)
+  localStorage.setItem('carts', JSON.stringify(cartItem))
+
+  console.log(JSON.parse(localStorage.getItem('carts')).length)
+  console.log(JSON.parse(localStorage.getItem('carts')))
+}
