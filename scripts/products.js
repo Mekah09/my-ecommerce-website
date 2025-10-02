@@ -88,23 +88,23 @@ function addToCart(id, title, image, price) {
           </div>
         `;
   } else {
-    itemsaddedtocart.innerHTML = productCart.map(item => `
+    itemsaddedtocart.innerHTML = productCart.map(value => `
           <div class="flex gap-4 mb-4 pb-4 border-b">
-            <img src="${item.image}" class="w-20 h-20 object-cover rounded-lg" />
+            <img src="${value.image}" class="w-20 h-20 object-cover rounded-lg" />
             <div class="flex-1">
-              <h4 class="font-semibold text-sm mb-2">${item.title}</h4>
-              <p class="text-gray-600 text-sm mb-2">$${item.price}</p>
+              <h4 class="font-semibold text-sm mb-2">${value.title}</h4>
+              <p class="text-gray-600 text-sm mb-2">$${value.price}</p>
               <div class="flex items-center gap-2">
-                <button onclick="updateQuantity(${item.id}, -1)" class="w-7 h-7 bg-gray-100 rounded-full hover:bg-gray-200">
+                <button onclick="updateQuantity(${value.id}, -1)" class="w-7 h-7 bg-gray-100 rounded-full hover:bg-gray-200">
                   <i class="fa-solid fa-minus text-xs"></i>
                 </button>
-                <span class="font-medium">${item.quantity}</span>
-                <button onclick="updateQuantity(${item.id}, 1)" class="w-7 h-7 bg-gray-100 rounded-full hover:bg-gray-200">
+                <span class="font-medium">${value.quantity}</span>
+                <button onclick="updateQuantity(${value.id}, 1)" class="w-7 h-7 bg-gray-100 rounded-full hover:bg-gray-200">
                   <i class="fa-solid fa-plus text-xs"></i>
                 </button>
               </div>
             </div>
-            <button onclick="removeFromCart(${item.id})" class="text-red-500 hover:text-red-600">
+            <button onclick="removeFromCart(${value.id})" class="text-red-500 hover:text-red-600">
               <i class="fa-solid fa-trash-can"></i>
             </button>
           </div>
