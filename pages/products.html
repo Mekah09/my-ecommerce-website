@@ -76,10 +76,34 @@
                 <div
                   class="relative flex h-full flex-col overflow-y-auto bg-white py-6 shadow-xl after:absolute after:inset-y-0 after:left-0 after:w-px after:bg-white/10">
                   <div class="px-4 sm:px-6">
-                    <h2 id="drawer-title" class="text-base font-semibold text-gray-800">My carts</h2>
+                    <!-- <h2 id="drawer-title" class="text-base font-semibold text-gray-800">My carts</h2> -->
+                    <div class="flex items-center justify-between p-6 border-b">
+                      <h2 class="text-xl font-bold text-gray-900">My Cart</h2>
+                    </div>
                   </div>
-                  <div class="relative mt-6 flex-1 px-4 sm:px-6" id="itemsaddedtocart">
+                  <div class="relative mt-6 flex-1 px-4 sm:px-6">
                     <!-- Your content -->
+                    <div class="h-full flex flex-col">
+
+
+                      <div id="itemaddedtocart" class="flex-1 overflow-y-auto p-6">
+                        <div class="text-center py-12">
+                          <i class="fa-solid fa-cart-shopping text-6xl text-gray-300 mb-4"></i>
+                          <p class="text-gray-500">Your cart is empty</p>
+                        </div>
+                      </div>
+
+                      <div class="border-t p-6 space-y-4">
+                        <div class="flex items-center justify-between text-lg font-bold">
+                          <span>Total</span>
+                          <span id="cartTotal">$0.00</span>
+                        </div>
+                        <button
+                          class="w-full py-4 bg-gray-900 text-white font-bold rounded-xl hover:bg-gray-800 transition shadow-lg">
+                          Checkout
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </el-dialog-panel>

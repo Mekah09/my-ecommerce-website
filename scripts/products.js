@@ -68,12 +68,7 @@ function addToCart(id, title, image, price) {
 
   const cartItem = JSON.parse(localStorage.getItem('carts')) || [];
   // console.log(cartItem)
-  let productCart = {
-    id: id,
-    title: title,
-    image: image,
-    price: price
-  }
+  let productCart = []
 
   cartItem.push(productCart);
   // console.log(cartItem)
@@ -81,8 +76,42 @@ function addToCart(id, title, image, price) {
 
   console.log(JSON.parse(localStorage.getItem('carts')).length)
   console.log(JSON.parse(localStorage.getItem('carts')))
+
+  itemsaddedtocart.innerHTML = JSON.parse(localStorage.getItem('carts'))
+
+
+  if (productCart.length === 0) {
+    itemsaddedtocart.innerHTML = `
+          <div class="text-center py-12">
+            <i class="fa-solid fa-shopping-bag text-6xl text-gray-300 mb-4"></i>
+            <p class="text-gray-500">Your cart is empty</p>
+          </div>
+        `;
+  } else {
+    itemsaddedtocart.innerHTML = productCart.map(item => `
+          <div class="flex gap-4 mb-4 pb-4 border-b">
+            <img src="${item.image}" class="w-20 h-20 object-cover rounded-lg" />
+            <div class="flex-1">
+              <h4 class="font-semibold text-sm mb-2">${item.title}</h4>
+              <p class="text-gray-600 text-sm mb-2">$${item.price}</p>
+              <div class="flex items-center gap-2">
+                <button onclick="updateQuantity(${item.id}, -1)" class="w-7 h-7 bg-gray-100 rounded-full hover:bg-gray-200">
+                  <i class="fa-solid fa-minus text-xs"></i>
+                </button>
+                <span class="font-medium">${item.quantity}</span>
+                <button onclick="updateQuantity(${item.id}, 1)" class="w-7 h-7 bg-gray-100 rounded-full hover:bg-gray-200">
+                  <i class="fa-solid fa-plus text-xs"></i>
+                </button>
+              </div>
+            </div>
+            <button onclick="removeFromCart(${item.id})" class="text-red-500 hover:text-red-600">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </div>
+        `).join('');
+  }
+
 }
 
-let theCarts = JSON.parse(localStorage.getItem('carts'))
-let thecarttohtml = itemsaddedtocart.innerHTML
-// itemsaddedtocart.innerHTML= JSON.parse(localStorage.getItem('carts')).length;
+// let theCarts = JSON.parse(localStorage.getItem('carts'))
+// let thecarttohtml = itemsaddedtocart.innerHTML
