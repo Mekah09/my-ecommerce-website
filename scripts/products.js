@@ -1,4 +1,6 @@
 const allMyProducts = document.querySelector('#productsDisplay')
+const itemsaddedtocart = document.querySelector('#itemsaddedtocart')
+
 
 fetch('https://dummyjson.com/products?limit=100', {
   method: "GET"
@@ -80,3 +82,7 @@ function addToCart(id, title, image, price) {
   console.log(JSON.parse(localStorage.getItem('carts')).length)
   console.log(JSON.parse(localStorage.getItem('carts')))
 }
+
+let theCarts = JSON.parse(localStorage.getItem('carts'))
+let thecarttohtml = itemsaddedtocart.innerHTML
+// itemsaddedtocart.innerHTML= JSON.parse(localStorage.getItem('carts')).length;
