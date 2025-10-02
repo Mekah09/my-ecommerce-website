@@ -1,5 +1,6 @@
 const allMyProducts = document.querySelector('#productsDisplay')
-const itemsaddedtocart = document.querySelector('#itemsaddedtocart')
+const itemsaddedtocart = document.querySelector('#itemaddedtocart')
+const cartsItemsCount = document.querySelector('#cartCount')
 
 
 fetch('https://dummyjson.com/products?limit=100', {
@@ -62,38 +63,42 @@ fetch('https://dummyjson.com/products?limit=100', {
     }).join('');
   })
 
-function addToCart(id, title, image, price) {
+function addToCart(id, title, price, thumbnail) {
   // alert("Button clicked")
   // console.log(id, title, image, price)
 
   const cartItem = JSON.parse(localStorage.getItem('carts')) || [];
   // console.log(cartItem)
-  let productCart = []
+  let productCart = {
+    id: id,
+    title: title,
+    thumbnail: thumbnail,
+    price: price,
+    quantity: 1
+  }
 
   cartItem.push(productCart);
   // console.log(cartItem)
   localStorage.setItem('carts', JSON.stringify(cartItem))
-
+  
+  cartsItemsCount.innerText = JSON.parse(localStorage.getItem('carts')).length
   console.log(JSON.parse(localStorage.getItem('carts')).length)
   console.log(JSON.parse(localStorage.getItem('carts')))
+  cartsItems()
 
-  itemsaddedtocart.innerHTML = JSON.parse(localStorage.getItem('carts'))
+}
 
-
-  if (productCart.length === 0) {
-    itemsaddedtocart.innerHTML = `
-          <div class="text-center py-12">
-            <i class="fa-solid fa-shopping-bag text-6xl text-gray-300 mb-4"></i>
-            <p class="text-gray-500">Your cart is empty</p>
-          </div>
-        `;
-  } else {
+  
+function cartsItems(){
+  let productCart = JSON.parse(localStorage.getItem('carts')) || []
+  console.log(productCart)
+  if (productCart.length > 0) {
     itemsaddedtocart.innerHTML = productCart.map(value => `
           <div class="flex gap-4 mb-4 pb-4 border-b">
-            <img src="${value.image}" class="w-20 h-20 object-cover rounded-lg" />
+            <img src="${value.thumbnail}" class="w-20 h-20 object-cover rounded-lg" />
             <div class="flex-1">
               <h4 class="font-semibold text-sm mb-2">${value.title}</h4>
-              <p class="text-gray-600 text-sm mb-2">$${value.price}</p>
+              <p class="text-gray-600 text-sm mb-2">${value.price}</p>
               <div class="flex items-center gap-2">
                 <button onclick="updateQuantity(${value.id}, -1)" class="w-7 h-7 bg-gray-100 rounded-full hover:bg-gray-200">
                   <i class="fa-solid fa-minus text-xs"></i>
@@ -111,7 +116,10 @@ function addToCart(id, title, image, price) {
         `).join('');
   }
 
-}
+  }
+
+  cartsItems()
+
 
 // let theCarts = JSON.parse(localStorage.getItem('carts'))
 // let thecarttohtml = itemsaddedtocart.innerHTML
