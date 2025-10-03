@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
     integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
   <title>Products-Everyday Elegance</title>
 </head>
@@ -178,14 +180,14 @@
   </header>
 
 
-  <section class="pt-32 pb-12 px-4 lg:px-8 max-w-7xl mx-auto">
-    <div class="text-center mb-12">
+  <section class="pt-32 pb-12 px-4 lg:px-8 max-w-7xl mx-auto" data-aos="fade-up">
+    <div class="text-center mb-12" data-aos="fade-right">
       <h1 class="text-5xl lg:text-6xl font-bold text-gray-900 mb-4 tracking-tight">Discover Amazing Products</h1>
       <p class="text-lg text-gray-600 max-w-2xl mx-auto">Curated collection of premium items at unbeatable prices</p>
     </div>
 
     <!-- Enhanced Search Bar -->
-    <div class="max-w-3xl mx-auto">
+    <div class="max-w-3xl mx-auto" data-aos="fade-left">
       <div class="relative">
         <input type="text" id="searchInput" placeholder="Search for products, brands, and more..."
           class="w-full px-6 py-4 pl-14 pr-32 text-lg border-2 border-gray-200 rounded-2xl focus:border-gray-900 focus:outline-none bg-white shadow-sm transition" />
@@ -198,11 +200,11 @@
     </div>
   </section>
   <!-- Filters & Products -->
-  <section class="max-w-7xl mx-auto px-4 lg:px-8 pb-20">
+  <section class="max-w-7xl mx-auto px-4 lg:px-8 pb-20" data-aos="fade-up">
     <div class="flex gap-8">
 
       <!-- Modern Sidebar -->
-      <aside class="hidden lg:block w-72 flex-shrink-0">
+      <aside class="hidden lg:block w-72 flex-shrink-0" data-aos="fade-up">
         <div class="sticky top-24 space-y-6">
 
           <!-- Categories Card -->
@@ -310,7 +312,7 @@
         </div>
 
         <!-- Products Grid -->
-        <div class="grid grid-cols-2 sm:grid-cols-2 xl:grid-cols-3 gap-6 mb-12" id="productsDisplay">
+        <div class="grid grid-cols-2 sm:grid-cols-2 xl:grid-cols-3 gap-6 mb-12" id="productsDisplay" data-aos="fade-up">
           <!-- Products will load here -->
         </div>
 
@@ -326,7 +328,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-slate-300 w-full text-gray-800 px-4 py-16 sm:px-6 sm:py-24  lg:px-8 ">
+  <footer class="bg-slate-300 w-full text-gray-800 px-4 py-16 sm:px-6 sm:py-24  lg:px-8 " data-aos="fade-up">
     <div class="mx-auto flex justify-between flex-wrap">
 
       <div class="md:col-span-1">
@@ -409,6 +411,14 @@
   </footer>
 
   <script src="../scripts/products.js"></script>
+  <script src="../scripts/carts.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1500, // animation duration (ms)
+      once: true,     // play only once
+    });
+  </script>
 </body>
 
 </html>

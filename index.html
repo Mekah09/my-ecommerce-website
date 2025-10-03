@@ -21,15 +21,28 @@
 
 <body>
   <!-- nav bar with an hamburger button -->
+  <!-- nav bar with hamburger button and cart icon side by side on mobile -->
   <header class="absolute inset-x-0 top-0 z-50">
     <nav aria-label="Global" class="flex items-center justify-between p-6 lg:px-8">
       <div class="flex lg:flex-1 text-lg">
         <a href="#" class="-m-1.5 p-1.5">
           <span class="sr-only">Your Company</span>
-          <img src="./images/LOGO.webp" alt="" class="h-8 w-auto" />
+          <img src="/images/LOGO.webp" alt="" class="h-8 w-auto" />
         </a>
       </div>
-      <div class="flex lg:hidden">
+
+      <!-- Mobile cart icon and hamburger button -->
+      <div class="flex lg:hidden items-center gap-4">
+        <!-- Mobile Cart Icon -->
+        <button command="show-modal" commandfor="cart-drawer"
+          class="relative -m-2.5 inline-flex items-center justify-center rounded-md p-2.5">
+          <span class="sr-only">Open cart</span>
+          <i class="fa-solid fa-cart-shopping text-xl text-gray-800"></i>
+          <span id="cartCountMobile"
+            class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">0</span>
+        </button>
+
+        <!-- Hamburger Button -->
         <button type="button" command="show-modal" commandfor="mobile-menu"
           class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5">
           <span class="sr-only">Open main menu</span>
@@ -39,20 +52,89 @@
           </svg>
         </button>
       </div>
+
+      <!-- Desktop Navigation -->
       <div class="hidden lg:flex lg:gap-x-12">
         <a href="#" class="text-base font-semibold text-gray-800">Home</a>
-        <a href="./pages/products.html" class="text-base font-semibold text-gray-800">Products</a>
-        <a href="./pages/blog.html" class="text-base font-semibold text-gray-800">Blog</a>
-        <a href="./pages/contact.html" class="text-base font-semibold text-gray-800">Contact</a>
+        <a href="/pages/products.html" class="text-base font-semibold text-gray-800">Products</a>
+        <a href="/pages/blog.html" class="text-base font-semibold text-gray-800">Blog</a>
+        <a href="/pages/contact.html" class="text-base font-semibold text-gray-800">Contact</a>
       </div>
-      <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+
+      <!-- Desktop Sign Up and Cart -->
+      <span class="hidden lg:flex lg:flex-1 lg:justify-end">
         <a href="#"
           class="rounded-md bg-gray-800 mr-4 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-grey-400 focus-visible:outline-2 focus-visible:outline-offset-2">Sign
           Up</a>
-        <a href="#" class="text-2xl font-semibold text-gray-800"><i class="fa-solid fa-cart-shopping"></i></a>
-        <!-- <a href="#" class="text-sm/6 font-semibold text-white">Log in <span aria-hidden="true">&rarr;</span></a> -->
-      </div>
+        <span class="top-0">
+          <button command="show-modal" commandfor="cart-drawer"
+            class="relative bg-white/10 text-sm font-semibold text-white hover:bg-white/20 ">
+            <a href="#" class="text-2xl font-semibold text-gray-800"><i class="fa-solid fa-cart-shopping"></i></a>
+            <span id="cartCount"
+              class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">0</span>
+          </button>
+        </span>
+      </span>
     </nav>
+
+    <!-- Cart Drawer (Shared between mobile and desktop) -->
+    <el-dialog>
+      <dialog id="cart-drawer" aria-labelledby="cart-drawer-title"
+        class="fixed inset-0 size-auto max-h-none max-w-none overflow-hidden bg-transparent not-open:hidden backdrop:bg-transparent">
+        <el-dialog-backdrop
+          class="absolute inset-0 bg-gray-900/50 transition-opacity duration-500 ease-in-out data-closed:opacity-0"></el-dialog-backdrop>
+
+        <div tabindex="0" class="absolute inset-0 pl-10 focus:outline-none sm:pl-16">
+          <el-dialog-panel
+            class="group/dialog-panel relative ml-auto block size-full max-w-md transform transition duration-500 ease-in-out data-closed:translate-x-full sm:duration-700">
+            <div
+              class="absolute top-0 left-0 -ml-8 flex pt-4 pr-2 duration-500 ease-in-out group-data-closed/dialog-panel:opacity-0 sm:-ml-10 sm:pr-4">
+              <button type="button" command="close" commandfor="cart-drawer"
+                class="relative rounded-md text-gray-400 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+                <span class="absolute -inset-2.5"></span>
+                <span class="sr-only">Close panel</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon"
+                  aria-hidden="true" class="size-6">
+                  <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+
+            <div
+              class="relative flex h-full flex-col overflow-y-auto bg-white py-6 shadow-xl after:absolute after:inset-y-0 after:left-0 after:w-px after:bg-white/10">
+              <div class="px-4 sm:px-6">
+                <div class="flex items-center justify-between p-6 border-b">
+                  <h2 id="cart-drawer-title" class="text-xl font-bold text-gray-900">My Cart</h2>
+                </div>
+              </div>
+              <div class="relative mt-6 flex-1 px-4 sm:px-6">
+                <div class="h-full flex flex-col">
+                  <div id="itemaddedtocart" class="flex-1 overflow-y-auto p-6">
+                    <div class="text-center py-12">
+                      <i class="fa-solid fa-cart-shopping text-6xl text-gray-300 mb-4"></i>
+                      <p class="text-gray-500">Your cart is empty</p>
+                    </div>
+                  </div>
+
+                  <div class="border-t p-6 space-y-4">
+                    <div class="flex items-center justify-between text-lg font-bold">
+                      <span>Total</span>
+                      <span id="cartTotal">$0.00</span>
+                    </div>
+                    <button
+                      class="w-full py-4 bg-gray-900 text-white font-bold rounded-xl hover:bg-gray-800 transition shadow-lg">
+                      Checkout
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </el-dialog-panel>
+        </div>
+      </dialog>
+    </el-dialog>
+
+    <!-- Mobile Menu Dialog -->
     <el-dialog>
       <dialog id="mobile-menu" class="backdrop:bg-transparent lg:hidden">
         <div tabindex="0" class="fixed inset-0 focus:outline-none">
@@ -61,10 +143,10 @@
             <div class="flex items-center justify-between">
               <a href="#" class="-m-1.5 p-1.5">
                 <span class="sr-only">Your Company</span>
-                <img src="images/LOGO.webp" alt="" class="h-8 w-auto" />
+                <img src="/images/LOGO.webp" alt="" class="h-8 w-auto" />
               </a>
               <button type="button" command="close" commandfor="mobile-menu"
-                class="-m-2.5 rounded-md p-2.5 text-gray-200">
+                class="-m-2.5 rounded-md p-2.5 text-gray-800">
                 <span class="sr-only">Close menu</span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon"
                   aria-hidden="true" class="size-6">
@@ -76,22 +158,20 @@
               <div class="-my-6 divide-y divide-white/10">
                 <div class="space-y-2 py-6">
                   <a href="#"
-                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-800 hover:bg-white/5">Home</a>
-                  <a href="./pages/products.html"
-                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-800 hover:bg-white/5">Products</a>
-                  <a href="./pages/blog.html"
-                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-800 hover:bg-white/5">Blog</a>
-                  <a href="./pages/contact.html"
-                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-800 hover:bg-white/5">Contact</a>
+                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-800 hover:bg-gray-100">Home</a>
+                  <a href="/pages/products.html"
+                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-800 hover:bg-gray-100">Products</a>
+                  <a href="/pages/blog.html"
+                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-800 hover:bg-gray-100">Blog</a>
+                  <a href="/pages/contact.html"
+                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-800 hover:bg-gray-100">Contact</a>
                 </div>
                 <div class="py-6">
-                  <a href="#" class="text-lg font-semibold text-gray-800"><i class="fa-solid fa-cart-shopping"></i></a>
-
                   <a href="#"
-                    class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-800 hover:bg-white/5">Sign
+                    class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-800 hover:bg-gray-100">Sign
                     Up</a>
                   <a href="#"
-                    class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-800 hover:bg-white/5">Log
+                    class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-800 hover:bg-gray-100">Log
                     in</a>
                 </div>
               </div>
@@ -102,21 +182,22 @@
     </el-dialog>
   </header>
 
+
   <!-- Hero section -->
   <section class="relative isolate px-8 pt-16 lg:px-10" data-aos="fade-up">
-    <div class="mx-auto max-w-2xl py-7 sm:py-17 lg:py-17">
+    <div class="mx-auto max-w-2xl py-7 sm:py-17 lg:py-17" data-aos="fade-in">
       <div class="text-center">
         <h1 class="text-5xl font-semibold tracking-tight text-balance text-gray-800 sm:text-7xl">Everyday Elegance</h1>
         <p class="mt-8 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8">We believe beauty shouldn’t cost a
           fortune. And comfort shouldn’t be a luxury.</p>
         <div class="mt-10 flex items-center justify-center gap-x-6">
-          <a href="#"
-            class=" bg-gray-800 p-3 text-white shadow-xs hover:bg-grey-400 focus-visible:outline-2 focus-visible:outline-offset-2">Shop</a>
-          <a href="#" class="text-sm/6 font-semibold text-gray-800">Buy Template<span aria-hidden="true">→</span></a>
+          <a href="/pages/products.html"
+            class=" bg-gray-800 p-3 text-white shadow-xs hover:bg-grey-400 focus-visible:outline-2 focus-visible:outline-offset-2 rounded-md">Shop Now</a>
+          <a href="/pages/contact.html" class="text-sm/6 font-semibold text-gray-800">Contact Us<span aria-hidden="true">→</span></a>
         </div>
       </div>
 
-    </div>
+    </div data-aos="fade-up">
     <div class="">
       <img src="images/img-hero-sec.jpeg" alt="" class="h-80 w-full object-cover">
     </div>
@@ -126,7 +207,7 @@
   <!-- section about the best of the best products the products are gotten for the api and extracted from it -->
   <section data-aos="fade-up">
 
-    <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+    <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8" data-aos="fade-up">
 
       <h4 class="text-lg tracking-tight text-slate-300">Trending</h4>
       <h1 class="mt-5 text-5xl font-bold tracking-tight text-gray-800">The best of the best</h1>
@@ -192,7 +273,7 @@
   <section class="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8" data-aos="fade-up">
     <div
       class="relative isolate overflow-hidden text-gray-800 pt-16 after:pointer-events-none after:absolute after:inset-0 after:inset-ring after:inset-ring-white/10 md:pt-24 lg:flex lg:gap-x-20 lg:pt-0">
-      <div class="mx-auto max-w-md  lg:mx-0 lg:flex-auto lg:py-32">
+      <div class="mx-auto max-w-md sm: p-5 lg:mx-0 lg:flex-auto lg:py-32">
         <h1 class="text-4xl font-semibold tracking-tight text-balance sm:text-5xl">Why choose us?</h1>
         <p class="mt-6 text-lg/8 text-pretty text-gray-600">We offer the best products at the best prices. We prioritize
           customer satisfaction and quality assurance. We guarantee fast shipping and easy returns.</p>
@@ -227,7 +308,7 @@
       </div>
     </div>
 
-    <div class="mt-8 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8" id="pro"></div>
+    <div class="mt-8 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8" id="pro" data-aos="fade-right"></div>
 
   </section>
 
@@ -244,7 +325,7 @@
       </div>
     </div>
 
-    <div class="mt-8 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8" id="pro2"></div>
+    <div class="mt-8 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8" id="pro2" data-aos="fade-left"></div>
 
   </section>
 
@@ -331,10 +412,11 @@
   </footer>
 
   <script src="scripts/index.js"></script>
+  <script src="/scripts/carts.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({
-      duration: 1000, // animation duration (ms)
+      duration: 1500, // animation duration (ms)
       once: true,     // play only once
     });
   </script>

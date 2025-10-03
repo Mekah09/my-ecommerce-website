@@ -9,21 +9,36 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
     integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
   <title>Contact-Everyday Elegance</title>
 </head>
 
 <body>
   <!-- nav bar with an hamburger button -->
+  <!-- nav bar with hamburger button and cart icon side by side on mobile -->
   <header class="absolute inset-x-0 top-0 z-50">
     <nav aria-label="Global" class="flex items-center justify-between p-6 lg:px-8">
       <div class="flex lg:flex-1 text-lg">
-        <a href="#" class="-m-1.5 p-1.5">
+        <a href="/index.html" class="-m-1.5 p-1.5">
           <span class="sr-only">Your Company</span>
           <img src="/images/LOGO.webp" alt="" class="h-8 w-auto" />
         </a>
       </div>
-      <div class="flex lg:hidden">
+
+      <!-- Mobile cart icon and hamburger button -->
+      <div class="flex lg:hidden items-center gap-4">
+        <!-- Mobile Cart Icon -->
+        <button command="show-modal" commandfor="cart-drawer"
+          class="relative -m-2.5 inline-flex items-center justify-center rounded-md p-2.5">
+          <span class="sr-only">Open cart</span>
+          <i class="fa-solid fa-cart-shopping text-xl text-gray-800"></i>
+          <span id="cartCountMobile"
+            class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">0</span>
+        </button>
+
+        <!-- Hamburger Button -->
         <button type="button" command="show-modal" commandfor="mobile-menu"
           class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5">
           <span class="sr-only">Open main menu</span>
@@ -33,32 +48,101 @@
           </svg>
         </button>
       </div>
+
+      <!-- Desktop Navigation -->
       <div class="hidden lg:flex lg:gap-x-12">
         <a href="/index.html" class="text-base font-semibold text-gray-800">Home</a>
         <a href="products.html" class="text-base font-semibold text-gray-800">Products</a>
         <a href="blog.html" class="text-base font-semibold text-gray-800">Blog</a>
         <a href="#" class="text-base font-semibold text-gray-800">Contact</a>
       </div>
-      <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+
+      <!-- Desktop Sign Up and Cart -->
+      <span class="hidden lg:flex lg:flex-1 lg:justify-end">
         <a href="#"
           class="rounded-md bg-gray-800 mr-4 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-grey-400 focus-visible:outline-2 focus-visible:outline-offset-2">Sign
           Up</a>
-        <a href="#" class="text-2xl font-semibold text-gray-800"><i class="fa-solid fa-cart-shopping"></i></a>
-        <!-- <a href="#" class="text-sm/6 font-semibold text-white">Log in <span aria-hidden="true">&rarr;</span></a> -->
-      </div>
+        <span class="top-0">
+          <button command="show-modal" commandfor="cart-drawer"
+            class="relative bg-white/10 text-sm font-semibold text-white hover:bg-white/20 ">
+            <a href="#" class="text-2xl font-semibold text-gray-800"><i class="fa-solid fa-cart-shopping"></i></a>
+            <span id="cartCount"
+              class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">0</span>
+          </button>
+        </span>
+      </span>
     </nav>
+
+    <!-- Cart Drawer (Shared between mobile and desktop) -->
+    <el-dialog>
+      <dialog id="cart-drawer" aria-labelledby="cart-drawer-title"
+        class="fixed inset-0 size-auto max-h-none max-w-none overflow-hidden bg-transparent not-open:hidden backdrop:bg-transparent">
+        <el-dialog-backdrop
+          class="absolute inset-0 bg-gray-900/50 transition-opacity duration-500 ease-in-out data-closed:opacity-0"></el-dialog-backdrop>
+
+        <div tabindex="0" class="absolute inset-0 pl-10 focus:outline-none sm:pl-16">
+          <el-dialog-panel
+            class="group/dialog-panel relative ml-auto block size-full max-w-md transform transition duration-500 ease-in-out data-closed:translate-x-full sm:duration-700">
+            <div
+              class="absolute top-0 left-0 -ml-8 flex pt-4 pr-2 duration-500 ease-in-out group-data-closed/dialog-panel:opacity-0 sm:-ml-10 sm:pr-4">
+              <button type="button" command="close" commandfor="cart-drawer"
+                class="relative rounded-md text-gray-400 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+                <span class="absolute -inset-2.5"></span>
+                <span class="sr-only">Close panel</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon"
+                  aria-hidden="true" class="size-6">
+                  <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+
+            <div
+              class="relative flex h-full flex-col overflow-y-auto bg-white py-6 shadow-xl after:absolute after:inset-y-0 after:left-0 after:w-px after:bg-white/10">
+              <div class="px-4 sm:px-6">
+                <div class="flex items-center justify-between p-6 border-b">
+                  <h2 id="cart-drawer-title" class="text-xl font-bold text-gray-900">My Cart</h2>
+                </div>
+              </div>
+              <div class="relative mt-6 flex-1 px-4 sm:px-6">
+                <div class="h-full flex flex-col">
+                  <div id="itemaddedtocart" class="flex-1 overflow-y-auto p-6">
+                    <div class="text-center py-12">
+                      <i class="fa-solid fa-cart-shopping text-6xl text-gray-300 mb-4"></i>
+                      <p class="text-gray-500">Your cart is empty</p>
+                    </div>
+                  </div>
+
+                  <div class="border-t p-6 space-y-4">
+                    <div class="flex items-center justify-between text-lg font-bold">
+                      <span>Total</span>
+                      <span id="cartTotal">$0.00</span>
+                    </div>
+                    <button
+                      class="w-full py-4 bg-gray-900 text-white font-bold rounded-xl hover:bg-gray-800 transition shadow-lg">
+                      Checkout
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </el-dialog-panel>
+        </div>
+      </dialog>
+    </el-dialog>
+
+    <!-- Mobile Menu Dialog -->
     <el-dialog>
       <dialog id="mobile-menu" class="backdrop:bg-transparent lg:hidden">
         <div tabindex="0" class="fixed inset-0 focus:outline-none">
           <el-dialog-panel
             class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-100/10 shadow-md">
             <div class="flex items-center justify-between">
-              <a href="#" class="-m-1.5 p-1.5">
+              <a href="/index.html" class="-m-1.5 p-1.5">
                 <span class="sr-only">Your Company</span>
                 <img src="/images/LOGO.webp" alt="" class="h-8 w-auto" />
               </a>
               <button type="button" command="close" commandfor="mobile-menu"
-                class="-m-2.5 rounded-md p-2.5 text-gray-200">
+                class="-m-2.5 rounded-md p-2.5 text-gray-800">
                 <span class="sr-only">Close menu</span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon"
                   aria-hidden="true" class="size-6">
@@ -70,22 +154,20 @@
               <div class="-my-6 divide-y divide-white/10">
                 <div class="space-y-2 py-6">
                   <a href="/index.html"
-                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-800 hover:bg-white/5">Home</a>
+                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-800 hover:bg-gray-100">Home</a>
                   <a href="products.html"
-                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-800 hover:bg-white/5">Products</a>
+                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-800 hover:bg-gray-100">Products</a>
                   <a href="blog.html"
-                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-800 hover:bg-white/5">Blog</a>
+                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-800 hover:bg-gray-100">Blog</a>
                   <a href="#"
-                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-800 hover:bg-white/5">Contact</a>
+                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-800 hover:bg-gray-100">Contact</a>
                 </div>
                 <div class="py-6">
-                  <a href="#" class="text-lg font-semibold text-gray-800"><i class="fa-solid fa-cart-shopping"></i></a>
-
                   <a href="#"
-                    class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-800 hover:bg-white/5">Sign
+                    class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-800 hover:bg-gray-100">Sign
                     Up</a>
                   <a href="#"
-                    class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-800 hover:bg-white/5">Log
+                    class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-800 hover:bg-gray-100">Log
                     in</a>
                 </div>
               </div>
@@ -96,7 +178,8 @@
     </el-dialog>
   </header>
 
-  <section class="mt-10">
+
+  <section class="mt-10" data-aos="fade-up">
 
     <div class="mx-auto max-w-2xl px-4 pt-16 sm:px-6 sm:pt-24 lg:max-w-7xl lg:px-8">
       <h4 class="text-lg tracking-tight text-blue-400">Let's talk</h4>
@@ -133,35 +216,41 @@
 
   </section>
 
-  <section class="mx-auto max-w-7xl py-24 sm:px-6 sm:pb-32 lg:px-8 flex gap-10 flex-wrap px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+  <section data-aos="fade-right"
+    class="mx-auto max-w-7xl py-24 sm:px-6 sm:pb-32 lg:px-8 flex gap-10 flex-wrap px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
     <div>
       <p class="text-blue-400 text-5xl"><i class="fa-solid fa-envelope"></i></i></p>
       <h1 class="text-4xl font-bold text-gray-800 pt-3">Email</h1>
-      <p class="text-gray-400 py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quod, id nam cum nostrum tenetur magni reiciendis </p>
+      <p class="text-gray-400 py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quod, id nam cum
+        nostrum tenetur magni reiciendis </p>
       <p class="text-gray-700 underline underline-offset-1"> <a href="#">support@everydayelegance.com</a></p>
     </div>
     <div>
       <p class="text-blue-400 text-5xl"><i class="fa-solid fa-comment"></i></p>
       <h1 class="text-4xl font-bold text-gray-800 pt-3">Live chat</h1>
-      <p class="text-gray-400 py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quod, id nam cum nostrum tenetur magni reiciendis</p>
+      <p class="text-gray-400 py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quod, id nam cum
+        nostrum tenetur magni reiciendis</p>
       <p class="text-gray-700 underline underline-offset-1"> <a href="#">Start new chat</a></p>
     </div>
     <div>
       <p class="text-blue-400 text-5xl"><i class="fa-solid fa-phone"></i></p>
       <h1 class="text-4xl font-bold text-gray-800 pt-3">Phone</h1>
-      <p class="text-gray-400 py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quod, id nam cum nostrum tenetur magni reiciendis</p>
+      <p class="text-gray-400 py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quod, id nam cum
+        nostrum tenetur magni reiciendis</p>
       <p class="text-gray-700 underline underline-offset-1"> <a href="#">+234 90 5361 8574</a></p>
     </div>
     <div>
       <p class="text-blue-400 text-5xl"><i class="fa-solid fa-location-dot"></i></p>
       <h1 class="text-4xl font-bold text-gray-800 pt-3">Office</h1>
-      <p class="text-gray-400 py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quod, id nam cum nostrum tenetur magni reiciendis</p>
-      <p class="text-gray-700 underline underline-offset-1"> <a href="#">Olofa estate, osogbo, Osun state, Nigeria</a></p>
+      <p class="text-gray-400 py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quod, id nam cum
+        nostrum tenetur magni reiciendis</p>
+      <p class="text-gray-700 underline underline-offset-1"> <a href="#">Olofa estate, osogbo, Osun state, Nigeria</a>
+      </p>
     </div>
   </section>
 
   <!-- a signup to newsletter section -->
-  <section
+  <section data-aos="fade-left"
     class="bg-slate-300 text-gray-800 py-20 px-4 sm:px-6 lg:px-8 mx-auto max-w-2xl mx-4 sm:mx-6 lg:max-w-7xl lg:mx-8">
     <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
 
@@ -206,7 +295,7 @@
   </section>
 
   <section>
-    <div class="bg-white py-24 sm:py-32">
+    <div class="bg-white py-24 sm:py-32" data-aos="fade-down">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-2xl lg:mx-0">
           <h4 class="text-lg tracking-tight text-blue-400">Blog</h4>
@@ -316,7 +405,7 @@
 
   </section>
 
-  <footer class="bg-slate-300 w-full text-gray-800 px-4 py-16 sm:px-6 sm:py-24  lg:px-8 ">
+  <footer class="bg-slate-300 w-full text-gray-800 px-4 py-16 sm:px-6 sm:py-24  lg:px-8 " data-aos="fade-up">
     <div class="mx-auto flex justify-between flex-wrap">
 
       <div class="md:col-span-1">
@@ -397,7 +486,14 @@
       </div>
     </div>
   </footer>
-
+  <script src="/scripts/carts.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1500, // animation duration (ms)
+      once: true,     // play only once
+    });
+  </script>
 </body>
 
 </html>
