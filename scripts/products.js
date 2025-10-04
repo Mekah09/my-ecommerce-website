@@ -51,7 +51,7 @@ fetch('https://dummyjson.com/products?limit=100', {
             </div>
             <button 
              onclick="addToCart(${value.id}, '${value.title}', ${value.price}, '${value.thumbnail}')"
-              class="w-full py-3 bg-gray-900 text-white font-semibold rounded-xl hover:bg-gray-800 transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2">
+              class="w-full p-3 bg-gray-900 text-white font-semibold rounded-xl hover:bg-gray-800 transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2">
               <i class="fa-solid fa-cart-plus"></i>
               Add to Cart
             </button>
