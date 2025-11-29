@@ -3,7 +3,7 @@ const cartsItemsCount = document.querySelector('#cartCount')
 
 
 function addToCart(id, title, price, thumbnail) {
-  // alert("Button clicked")
+  alert("Item added to cart")
   // console.log(id, title, image, price)
 
   const cartItem = JSON.parse(localStorage.getItem('carts')) || [];
